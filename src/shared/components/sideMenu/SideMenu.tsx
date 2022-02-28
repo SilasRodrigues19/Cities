@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate, useResolvedPath, useMatch } from 'react-router-dom';
-import { useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../contexts';
 
 interface IListItemLinkProps {
   to: string;
@@ -51,6 +51,7 @@ export const SideMenu: React.FC = ({ children }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   const username = 'SilasRodrigues19';
 
@@ -97,6 +98,17 @@ export const SideMenu: React.FC = ({ children }) => {
                   onClick={smDown ? toggleDrawerOpen : undefined}
                 />
               ))}
+            </List>
+          </Box>
+
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <Icon>dark_mode</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Mudar tema" />
+              </ListItemButton>
             </List>
           </Box>
         </Box>

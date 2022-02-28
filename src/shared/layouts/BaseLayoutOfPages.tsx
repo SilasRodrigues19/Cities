@@ -33,8 +33,8 @@ export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
         display="flex"
         alignItems="center"
         padding={1}
-        height={theme.spacing(12)}
         gap={1}
+        height={theme.spacing(smDown ? 6 : mdDown ? 8 : 12)}
       >
         {smDown && (
           <IconButton onClick={toggleDrawerOpen}>
