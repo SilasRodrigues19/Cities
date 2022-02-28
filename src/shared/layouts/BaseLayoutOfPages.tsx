@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   Icon,
   IconButton,
@@ -12,13 +13,16 @@ import { useDrawerContext } from '../contexts';
 
 interface IBaseLayoutOfPagesProps {
   title: string;
+  toolbar?: ReactNode;
 }
 
 export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
   children,
   title,
+  toolbar,
 }) => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
 
   const { toggleDrawerOpen } = useDrawerContext();
@@ -37,12 +41,20 @@ export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
             <Icon>menu</Icon>
           </IconButton>
         )}
-        <Typography variant="h5">{title}</Typography>
+        <Typography
+          overflow="hidden"
+          whiteSpace="nowrap"
+          textOverflow="ellipsis"
+          variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
+        >
+          {title}
+        </Typography>
       </Box>
 
-      <Box>Barra de ferramentas</Box>
-
-      <Box>{children}</Box>
+      {toolbar && <Box>{toolbar}</Box>}
+      <Box flex={1} overflow="auto">
+        {children}
+      </Box>
     </Box>
   );
 };
