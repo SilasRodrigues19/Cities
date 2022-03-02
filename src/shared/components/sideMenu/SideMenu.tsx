@@ -14,6 +14,8 @@ import { Box } from '@mui/system';
 import { useNavigate, useResolvedPath, useMatch } from 'react-router-dom';
 import { useAppThemeContext, useDrawerContext } from '../../contexts';
 
+import Image from '../../../images/logo.png';
+
 interface IListItemLinkProps {
   to: string;
   label: string;
@@ -53,8 +55,6 @@ export const SideMenu: React.FC = ({ children }) => {
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useAppThemeContext();
 
-  const username = 'SilasRodrigues19';
-
   return (
     <>
       <Drawer
@@ -82,7 +82,7 @@ export const SideMenu: React.FC = ({ children }) => {
                 pointerEvents: 'none',
               }}
               alt="Silas Rodrigues"
-              src={`https://github.com/${username}.png`}
+              src={Image}
             />
           </Box>
 
@@ -107,7 +107,7 @@ export const SideMenu: React.FC = ({ children }) => {
                 <ListItemIcon>
                   <Icon>dark_mode</Icon>
                 </ListItemIcon>
-                <ListItemText primary="Mudar tema" />
+                <ListItemText primary="Tema" />
               </ListItemButton>
             </List>
           </Box>

@@ -8,7 +8,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-interface IToolbar {
+interface IListingToolsProps {
   searchText?: string;
   showInputSearch?: boolean;
   changeInputSearch?: (newText: string) => void;
@@ -17,7 +17,7 @@ interface IToolbar {
   changeNewButton?: () => void;
 }
 
-export const Toolbar: React.FC<IToolbar> = ({
+export const ListingTools: React.FC<IListingToolsProps> = ({
   searchText = '',
   showInputSearch = false,
   changeInputSearch,
