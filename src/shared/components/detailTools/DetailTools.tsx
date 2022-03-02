@@ -1,4 +1,12 @@
-import { Box, Button, Divider, Icon, Paper, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Divider,
+  Icon,
+  Paper,
+  Skeleton,
+  useTheme,
+} from '@mui/material';
 
 interface IDetailToolsProps {
   newTextButton?: string;
@@ -7,6 +15,12 @@ interface IDetailToolsProps {
   showDeleteButton?: boolean;
   showSaveButton?: boolean;
   showSaveCloseButton?: boolean;
+
+  showLoadingNewButton?: boolean;
+  showLoadingBackButton?: boolean;
+  showLoadingDeleteButton?: boolean;
+  showLoadingSaveButton?: boolean;
+  showLoadingSaveCloseButton?: boolean;
 
   onClickNew?: () => void;
   onClickBack?: () => void;
@@ -22,6 +36,12 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
   showDeleteButton = true,
   showSaveButton = true,
   showSaveCloseButton = false,
+
+  showLoadingNewButton = false,
+  showLoadingBackButton = false,
+  showLoadingDeleteButton = false,
+  showLoadingSaveButton = false,
+  showLoadingSaveCloseButton = false,
 
   onClickNew,
   onClickBack,
@@ -42,7 +62,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
       alignItems="center"
       component={Paper}
     >
-      {showSaveButton && (
+      {showSaveButton && !showLoadingSaveButton && (
         <Button
           color="primary"
           disableElevation
@@ -53,7 +73,10 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           Salvar
         </Button>
       )}
-      {showSaveCloseButton && (
+
+      {showLoadingSaveButton && <Skeleton width={110} height={60} />}
+
+      {showSaveCloseButton && !showLoadingSaveCloseButton && (
         <Button
           color="primary"
           disableElevation
@@ -64,7 +87,10 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           Salvar e voltar
         </Button>
       )}
-      {showDeleteButton && (
+
+      {showLoadingSaveCloseButton && <Skeleton width={180} height={60} />}
+
+      {showDeleteButton && !showLoadingDeleteButton && (
         <Button
           color="primary"
           disableElevation
@@ -75,7 +101,10 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           Apagar
         </Button>
       )}
-      {showNewButton && (
+
+      {showLoadingDeleteButton && <Skeleton width={110} height={60} />}
+
+      {showNewButton && !showLoadingNewButton && (
         <Button
           color="primary"
           disableElevation
@@ -87,9 +116,11 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
         </Button>
       )}
 
+      {showLoadingNewButton && <Skeleton width={110} height={60} />}
+
       <Divider variant="middle" orientation="vertical" sx={{ mx: 2 }} />
 
-      {showBackButton && (
+      {showBackButton && !showLoadingBackButton && (
         <Button
           color="primary"
           disableElevation
@@ -100,6 +131,8 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           Voltar
         </Button>
       )}
+
+      {showLoadingBackButton && <Skeleton width={110} height={60} />}
     </Box>
   );
 };
