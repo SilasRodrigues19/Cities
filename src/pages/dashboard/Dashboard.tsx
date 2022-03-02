@@ -1,12 +1,9 @@
 import { BaseLayoutOfPages } from '../../shared/layouts';
-import { ListingTools } from '../../shared/components';
+import { DetailTools } from '../../shared/components';
 
 export const Dashboard = () => {
   return (
-    <BaseLayoutOfPages
-      title="Página inicial"
-      toolbar={<ListingTools showInputSearch />}
-    >
+    <BaseLayoutOfPages title="Página inicial" toolbar={<DetailTools />}>
       Testando
     </BaseLayoutOfPages>
   );
