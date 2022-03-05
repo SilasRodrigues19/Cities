@@ -5,7 +5,14 @@ export const Dashboard = () => {
   return (
     <BaseLayoutOfPages
       title="Página inicial"
-      toolbar={<DetailTools showSaveCloseButton showLoadingSaveCloseButton />}
+      toolbar={
+        <DetailTools
+          showNewButton
+          showSaveCloseButton
+          showLoadingSaveCloseButton
+          showBackButton={false}
+        />
+      }
     >
       Testando
     </BaseLayoutOfPages>
