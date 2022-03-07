@@ -4,8 +4,10 @@ import { DetailTools } from '../../shared/components';
 export const Dashboard = () => {
   return (
     <BaseLayoutOfPages
-      title="Página inicial"
-      toolbar={<DetailTools showNewButton />}
+      title="Home"
+      toolbar={
+        <DetailTools showNewButton showSaveCloseButton showBackButton={false} />
+      }
     >
       Testando
     </BaseLayoutOfPages>

@@ -33,7 +33,7 @@ interface IDetailToolsProps {
 }
 
 export const DetailTools: React.FC<IDetailToolsProps> = ({
-  newTextButton = 'Novo',
+  newTextButton = 'New',
   showNewButton = true,
   showBackButton = true,
   showDeleteButton = true,
@@ -83,7 +83,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               textOverflow="ellipsis"
               overflow="hidden"
             >
-              Salvar
+              Save
             </Typography>
           )}
         </Button>
@@ -108,7 +108,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               textOverflow="ellipsis"
               overflow="hidden"
             >
-              Salvar e voltar
+              Save and back
             </Typography>
           </Button>
         )}
@@ -132,7 +132,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               textOverflow="ellipsis"
               overflow="hidden"
             >
-              Apagar
+              Delete
             </Typography>
           )}
         </Button>
@@ -146,16 +146,18 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="outlined"
           onClick={onClickNew}
-          startIcon={<Icon>add</Icon>}
+          startIcon={<Icon sx={{ ml: 1 }}>add</Icon>}
         >
-          <Typography
-            variant="button"
-            whiteSpace="nowrap"
-            textOverflow="ellipsis"
-            overflow="hidden"
-          >
-            {newTextButton}
-          </Typography>
+          {!smDown && !mdDown && (
+            <Typography
+              variant="button"
+              whiteSpace="nowrap"
+              textOverflow="ellipsis"
+              overflow="hidden"
+            >
+              {newTextButton}
+            </Typography>
+          )}
         </Button>
       )}
 
@@ -174,7 +176,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
           disableElevation
           variant="outlined"
           onClick={onClickBack}
-          startIcon={<Icon>arrow_back</Icon>}
+          startIcon={<Icon>keyboard_backspace</Icon>}
         >
           <Typography
             variant="button"

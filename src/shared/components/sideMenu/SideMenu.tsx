@@ -107,7 +107,7 @@ export const SideMenu: React.FC = ({ children }) => {
                 <ListItemIcon>
                   <Icon>dark_mode</Icon>
                 </ListItemIcon>
-                <ListItemText primary="Tema" />
+                <ListItemText primary="Theme" />
               </ListItemButton>
             </List>
           </Box>

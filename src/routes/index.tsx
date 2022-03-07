@@ -10,17 +10,17 @@ export const AppRoutes = () => {
     setDrawerOptions([
       {
         icon: 'home',
-        path: '/pagina-inicial',
-        label: 'Página inicial',
+        path: '/home',
+        label: 'Home',
       },
     ]);
   }, []);
 
   return (
     <Routes>
-      <Route path="/pagina-inicial" element={<Dashboard />} />
+      <Route path="/home" element={<Dashboard />} />
 
-      <Route path="*" element={<Navigate to="/pagina-inicial" />} />
+      <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
   );
 };
