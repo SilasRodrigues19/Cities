@@ -1,0 +1,7 @@
+{
+    "people": [{
+        "id": 1,
+        "nome": "José",
+        "sobrenome": "Silva"
+    }]
+}
