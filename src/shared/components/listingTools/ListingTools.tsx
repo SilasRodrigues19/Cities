@@ -1,3 +1,5 @@
+import { Environment } from '../../environment';
+
 import {
   Icon,
   InputAdornment,
@@ -44,6 +46,7 @@ export const ListingTools: React.FC<IListingToolsProps> = ({
           onChange={(e) => changeInputSearch?.(e.target.value)}
           size="small"
           label="Pesquisar"
+          placeholder={Environment.SEARCH_INPUT}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
