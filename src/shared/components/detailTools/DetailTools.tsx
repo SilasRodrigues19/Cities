@@ -108,7 +108,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               textOverflow="ellipsis"
               overflow="hidden"
             >
-              Save and back
+              Save and close
             </Typography>
           </Button>
         )}
