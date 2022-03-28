@@ -9,7 +9,7 @@ export const Dashboard = () => {
         <DetailTools showNewButton showSaveCloseButton showBackButton={false} />
       }
     >
-      Testing
+      Home
     </BaseLayoutOfPages>
   );
 };
