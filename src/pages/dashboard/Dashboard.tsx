@@ -8,8 +8,6 @@ export const Dashboard = () => {
       toolbar={
         <DetailTools showNewButton showSaveCloseButton showBackButton={false} />
       }
-    >
-      Home
-    </BaseLayoutOfPages>
+    ></BaseLayoutOfPages>
   );
 };

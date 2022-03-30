@@ -10,8 +10,8 @@ interface IDetailPeople {
 
 interface IListingPeople {
   id: number;
-  cityId: number;
   email: string;
+  cityId: number;
   fullName: string;
 }
 
