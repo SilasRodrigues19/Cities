@@ -80,6 +80,7 @@ export const SideMenu: React.FC = ({ children }) => {
                 height: theme.spacing(12),
                 width: theme.spacing(12),
                 pointerEvents: 'none',
+                filter: theme.palette.mode == 'light' ? 'invert(1)' : '',
               }}
               alt="Silas Rodrigues"
               src={Image}
@@ -105,9 +106,13 @@ export const SideMenu: React.FC = ({ children }) => {
             <List component="nav">
               <ListItemButton onClick={toggleTheme}>
                 <ListItemIcon>
-                  <Icon>dark_mode</Icon>
+                  <Icon>
+                    {theme.palette.mode == 'dark' ? 'light_mode' : 'dark_mode'}
+                  </Icon>
                 </ListItemIcon>
-                <ListItemText primary="Theme" />
+                <ListItemText
+                  primary={theme.palette.mode == 'dark' ? 'Light' : 'Dark'}
+                />
               </ListItemButton>
             </List>
           </Box>
