@@ -1,7 +1,10 @@
 {
-    "people": [{
-        "id": 1,
-        "nome": "José",
-        "sobrenome": "Silva"
-    }]
+  "people": [
+    {
+      "id": 1,
+      "email": "mail@domain.com",
+      "cityId": 23,
+      "fullName": "Jose da Silva"
+    }
+  ]
 }
