@@ -14,14 +14,29 @@ export const AppRoutes = () => {
         label: 'Home',
       },
       {
-        icon: 'people',
+        icon: 'supervisor_account',
         path: '/people',
         label: 'People',
       },
       {
-        icon: 'location_city',
+        icon: 'apartment',
         path: '/city',
         label: 'Cities',
+      },
+      {
+        icon: 'help',
+        path: '/help',
+        label: 'Help',
+      },
+      {
+        icon: 'info',
+        path: '/info',
+        label: 'Info',
+      },
+      {
+        icon: 'volunteer_activism',
+        path: '/donate',
+        label: 'Donate',
       },
     ]);
   }, []);
@@ -30,7 +45,6 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/home" element={<Dashboard />} />
       <Route path="/people" element={<ListingPeople />} />
-
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
   );
