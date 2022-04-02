@@ -86,8 +86,7 @@ export const SideMenu: React.FC = ({ children }) => {
               src={Image}
             />
           </Box>
-
-          <Divider />
+          <Divider variant="middle" sx={{ mx: 2 }} />
           <Box flex={1}>
             <List component="nav">
               {drawerOptions.map(({ path, icon, label }) => (
@@ -100,14 +99,17 @@ export const SideMenu: React.FC = ({ children }) => {
                 />
               ))}
             </List>
+            <Divider variant="middle" sx={{ mx: 2 }} />
           </Box>
-
+          <Divider variant="middle" sx={{ mx: 2 }} />
           <Box>
             <List component="nav">
               <ListItemButton onClick={toggleTheme}>
                 <ListItemIcon>
                   <Icon>
-                    {theme.palette.mode == 'dark' ? 'light_mode' : 'dark_mode'}
+                    {theme.palette.mode == 'dark'
+                      ? 'light_mode'
+                      : 'nights_stay'}
                   </Icon>
                 </ListItemIcon>
                 <ListItemText
