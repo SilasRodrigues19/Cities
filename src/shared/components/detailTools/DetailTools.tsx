@@ -100,7 +100,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             disableElevation
             variant="outlined"
             onClick={onClickSaveClose}
-            startIcon={<Icon>save</Icon>}
+            startIcon={<Icon>fact_check</Icon>}
           >
             <Typography
               variant="button"
@@ -108,7 +108,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
               textOverflow="ellipsis"
               overflow="hidden"
             >
-              Save and close
+              Registrations
             </Typography>
           </Button>
         )}
