@@ -82,7 +82,7 @@ export const SideMenu: React.FC = ({ children }) => {
                 pointerEvents: 'none',
                 filter: theme.palette.mode == 'light' ? 'invert(1)' : '',
               }}
-              alt="Silas Rodrigues"
+              alt="logo"
               src={Image}
             />
           </Box>
