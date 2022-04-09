@@ -14,7 +14,7 @@ import { Box } from '@mui/system';
 import { useNavigate, useResolvedPath, useMatch } from 'react-router-dom';
 import { useAppThemeContext, useDrawerContext } from '../../contexts';
 
-import Image from '../../../images/logo.png';
+import Image from '../../../images/logo2.png';
 
 interface IListItemLinkProps {
   to: string;
