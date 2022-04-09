@@ -45,7 +45,7 @@ export const ListingTools: React.FC<IListingToolsProps> = ({
           value={searchText}
           onChange={(e) => changeInputSearch?.(e.target.value)}
           size="small"
-          label="Pesquisar"
+          label="Search"
           placeholder={Environment.SEARCH_INPUT}
           InputProps={{
             endAdornment: (

@@ -6,7 +6,7 @@ export const Environment = {
   /**
    * Placeholder dos inputs.
    */
-  SEARCH_INPUT: 'Search...',
+  SEARCH_INPUT: 'João da Silva...',
   /**
    * Texto exibido caso não exista registros na listagem.
    */

@@ -184,7 +184,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             textOverflow="ellipsis"
             overflow="hidden"
           >
-            Voltar
+            Back
           </Typography>
         </Button>
       )}

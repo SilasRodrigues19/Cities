@@ -34,11 +34,11 @@ const getAll = async (
         totalCount: Number(headers['x-total-count'] || Environment.ROWS_LIMIT),
       };
     }
-    return new Error('Erro ao listar os registros');
+    return new Error('Data listing failed');
   } catch (error) {
     console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao listar os registros'
+      (error as { message: string }).message || 'Data listing failed'
     );
   }
 };
@@ -50,11 +50,11 @@ const getById = async (id: number): Promise<IDetailPeople | Error> => {
     if (data) {
       return data;
     }
-    return new Error('Erro ao consultar os registros');
+    return new Error('Data query failed');
   } catch (error) {
     console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao consultar os registros'
+      (error as { message: string }).message || 'Data query failed'
     );
   }
 };
@@ -68,11 +68,11 @@ const create = async (
     if (data) {
       return data.id;
     }
-    return new Error('Erro ao criar o registros');
+    return new Error('Record creation failed');
   } catch (error) {
     console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao criar o registro'
+      (error as { message: string }).message || 'Record creation failed'
     );
   }
 };
@@ -86,7 +86,7 @@ const updateById = async (
   } catch (error) {
     console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao atualizar o registro'
+      (error as { message: string }).message || 'Registry update failed'
     );
   }
 };
@@ -97,7 +97,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
   } catch (error) {
     console.error(error);
     return new Error(
-      (error as { message: string }).message || 'Erro ao deletar o registro'
+      (error as { message: string }).message || 'Failed to delete record'
     );
   }
 };
