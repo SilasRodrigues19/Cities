@@ -4,7 +4,7 @@ import { DetailTools } from '../../shared/components';
 export const Dashboard = () => {
   return (
     <BaseLayoutOfPages
-      title="Magno - Home"
+      title="Home"
       toolbar={
         <DetailTools showNewButton showSaveCloseButton showBackButton={false} />
       }
