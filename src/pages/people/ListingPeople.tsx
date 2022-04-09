@@ -15,10 +15,14 @@ import {
   TableRow,
   TableCell,
   Paper,
+  useTheme,
 } from '@mui/material';
 
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const theme = useTheme();
+  const colorThemeStyle = theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca';
 
   const { debounce } = useDebounce();
 
@@ -79,9 +83,27 @@ export const ListingPeople: React.FC = () => {
           <TableBody>
             {rows.map(({ id, fullName, email }) => (
               <TableRow key={id}>
-                <TableCell sx={{ color: '#cacaca' }}>-</TableCell>
-                <TableCell sx={{ color: '#cacaca' }}>{fullName}</TableCell>
-                <TableCell sx={{ color: '#cacaca' }}>{email}</TableCell>
+                <TableCell
+                  sx={{
+                    color: colorThemeStyle,
+                  }}
+                >
+                  -
+                </TableCell>
+                <TableCell
+                  sx={{
+                    color: colorThemeStyle,
+                  }}
+                >
+                  {fullName}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    color: colorThemeStyle,
+                  }}
+                >
+                  {email}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
