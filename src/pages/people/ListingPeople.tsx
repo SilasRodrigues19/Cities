@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ListingTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
+import { Environment } from '../../shared/environment/index';
 import {
   PeopleService,
   IListingPeople,
@@ -12,10 +13,12 @@ import {
   TableContainer,
   TableHead,
   TableBody,
+  TableFooter,
   TableRow,
   TableCell,
   Paper,
   useTheme,
+  LinearProgress,
 } from '@mui/material';
 
 export const ListingPeople: React.FC = () => {
@@ -44,11 +47,12 @@ export const ListingPeople: React.FC = () => {
         if (result instanceof Error) {
           alert(result.message);
           return;
-        }
-        console.log(result);
+        } 
+          console.log(result);
 
-        setTotalCount(result.totalCount);
-        setRows(result.data);
+          setTotalCount(result.totalCount);
+          setRows(result.data);
+        
       });
     });
   }, [search]);
@@ -107,6 +111,20 @@ export const ListingPeople: React.FC = () => {
               </TableRow>
             ))}
           </TableBody>
+
+          {totalCount === 0 && !isLoading && (
+            <caption>{Environment.EMPTY_LISTING}</caption>
+          )}
+
+          <TableFooter>
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
+            )}
+          </TableFooter>
         </Table>
       </TableContainer>
     </BaseLayoutOfPages>
