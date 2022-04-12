@@ -1,3 +1,5 @@
+let development = process.env.NODE_ENV !== 'production';
+
 export const Environment = {
   /**
    * Define a quantidade de linhas a ser carregada por padrão nas listagens
@@ -14,5 +16,7 @@ export const Environment = {
   /**
    * Url base de consulta dos dados da aplicação
    */
-  BASE_URL: 'http://localhost:3333',
+  BASE_URL: development
+    ? 'http://localhost:3333'
+    : 'https://test-seven-flax.vercel.app/database.json',
 };
