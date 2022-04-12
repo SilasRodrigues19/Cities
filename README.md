@@ -8,7 +8,7 @@
 <br />
 <samp>
 <p align="center">
-  <a href="https://github.com/SilasRodrigues19/Photo-Gallery">
+  <a href="https://github.com/SilasRodrigues19/Cities">
     <img src="./src/images/logo2.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -105,18 +105,18 @@ Project Link: [https://github.com/SilasRodrigues19/Cities](https://github.com/Si
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
-[contributors-url]: https://github.com/SilasRodrigues19/Photo-Gallery/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
-[forks-url]: https://github.com/SilasRodrigues19/Photo-Gallery/network/members
-[stars-shield]: https://img.shields.io/github/stars/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
-[stars-url]: https://github.com/SilasRodrigues19/Photo-Gallery/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
-[issues-url]: https://github.com/SilasRodrigues19/Photo-Gallery/issues
-[license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
-[license-url]: https://github.com/SilasRodrigues19/Photo-Gallery/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/SilasRodrigues19/Cities.svg?style=for-the-badge
+[contributors-url]: https://github.com/SilasRodrigues19/Cities/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SilasRodrigues19/Cities.svg?style=for-the-badge
+[forks-url]: https://github.com/SilasRodrigues19/Cities/network/members
+[stars-shield]: https://img.shields.io/github/stars/SilasRodrigues19/Cities.svg?style=for-the-badge
+[stars-url]: https://github.com/SilasRodrigues19/Cities/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SilasRodrigues19/Cities.svg?style=for-the-badge
+[issues-url]: https://github.com/SilasRodrigues19/Cities/issues
+[license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Cities.svg?style=for-the-badge
+[license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 [product-screenshot]: ./public/preview.png
-[license-url]: https://github.com/SilasRodrigues19/Photo-Gallery/blob/master/LICENSE
+[license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 
 <br>
 
