@@ -1,3 +1,125 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<samp>
+<p align="center">
+  <a href="https://github.com/SilasRodrigues19/Photo-Gallery">
+    <img src="./src/images/logo2.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Cities</h3>
+
+  <p align="center">
+    Registration of people and cities.
+    <br />
+    <a href="cities-two.vercel.app/home"><strong>View Demo</strong></a>
+    <br />
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[![Preview][product-screenshot]](https://cities-two.vercel.app/home)
+
+This project was made and adapted during a React Tutorial by <a href="https://www.youtube.com/c/LucasSouzaDev">Lucas Souza Dev</a>
+
+The website is one page only:
+
+- **Home**: home page, which will display the main content of the application.
+- **People**: all registered people will be displayed, it is possible to filter people.
+- **Cities**: all registered cities will be displayed <strong>(Not yet implemented)</strong>.
+- **Help**: a help list will be displayed for a good use of the application <strong>(Not yet implemented)</strong>.
+- **Info**: application information <strong>(Not yet implemented)</strong>.
+- **Donate**: page to collaborate with the project <strong>(Not yet implemented)</strong>.
+
+### Built With
+
+Technologies used in the project.
+
+### Technologies
+
+- [TypeScript](https://www.typescriptlang.org/)
+
+### External Services
+
+- [JSON Server](https://www.npmjs.com/package/json-server)
+
+### Libraries
+
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Material UI](https://mui.com/pt/)
+
+### Font Script
+
+- [Font Awesome](https://fontawesome.com)
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Silas Rodrigues - [@jinuye1](https://twitter.com/jinuye1) - silasrodrigues.fatec@gmail.com
+
+Project Link: [https://github.com/SilasRodrigues19/Cities](https://github.com/SilasRodrigues19/Cities) <br>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
+[contributors-url]: https://github.com/SilasRodrigues19/Photo-Gallery/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
+[forks-url]: https://github.com/SilasRodrigues19/Photo-Gallery/network/members
+[stars-shield]: https://img.shields.io/github/stars/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
+[stars-url]: https://github.com/SilasRodrigues19/Photo-Gallery/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
+[issues-url]: https://github.com/SilasRodrigues19/Photo-Gallery/issues
+[license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Photo-Gallery.svg?style=for-the-badge
+[license-url]: https://github.com/SilasRodrigues19/Photo-Gallery/blob/master/LICENSE
+[product-screenshot]: ./public/preview.png
+[license-url]: https://github.com/SilasRodrigues19/Photo-Gallery/blob/master/LICENSE
+
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
