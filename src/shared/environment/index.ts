@@ -1,4 +1,6 @@
-let development = process.env.NODE_ENV !== 'production';
+import process from 'process';
+
+const development: boolean = process.env.NODE_ENV !== 'production';
 
 export const Environment = {
   /**
