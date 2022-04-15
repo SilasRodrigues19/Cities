@@ -17,7 +17,7 @@
   <p align="center">
     Registration of people and cities.
     <br />
-    <a href="cities-two.vercel.app/home"><strong>View Demo</strong></a>
+    <a href="https://cities-two.vercel.app/home"><strong>View Demo</strong></a>
     <br />
   </p>
 </p>
