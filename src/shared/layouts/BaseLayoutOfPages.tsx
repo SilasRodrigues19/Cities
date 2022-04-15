@@ -45,7 +45,8 @@ export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
           overflow="hidden"
           whiteSpace="nowrap"
           textOverflow="ellipsis"
-          variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
+          margin="0 auto"
+          variant={smDown ? 'h6' : mdDown ? 'h5' : 'h4'}
         >
           {title}
         </Typography>
