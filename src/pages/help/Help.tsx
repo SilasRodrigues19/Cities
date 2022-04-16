@@ -25,7 +25,10 @@ export const Help: React.FC = () => {
         <CardHeader title="FAQ" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
         <CardMedia
-          sx={{ objectFit: 'contain' }}
+          sx={{
+            objectFit: 'contain',
+            filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
+          }}
           component="img"
           height="194"
           image={bg}
