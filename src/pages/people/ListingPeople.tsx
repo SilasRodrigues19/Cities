@@ -47,12 +47,11 @@ export const ListingPeople: React.FC = () => {
         if (result instanceof Error) {
           alert(result.message);
           return;
-        } 
-          console.log(result);
+        }
+        console.log(result);
 
-          setTotalCount(result.totalCount);
-          setRows(result.data);
-        
+        setTotalCount(result.totalCount);
+        setRows(result.data);
       });
     });
   }, [search]);
@@ -74,7 +73,11 @@ export const ListingPeople: React.FC = () => {
       <TableContainer
         component={Paper}
         variant="outlined"
-        sx={{ m: 1, borderRadius: '1rem', width: 'auto' }}
+        sx={{
+          m: 1,
+          borderRadius: '1rem',
+          width: 'auto',
+        }}
       >
         <Table>
           <TableHead>
