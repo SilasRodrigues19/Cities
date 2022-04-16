@@ -7,12 +7,24 @@ import {
   CardContent,
   Typography,
   Paper,
+  useTheme,
 } from '@mui/material';
 
 import React from 'react';
 import bg from '../../images/about_us.svg';
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
+
 export const Info: React.FC = () => {
+  const theme = useTheme();
+  const [value, setValue] = React.useState('recents');
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
     <BaseLayoutOfPages title="Information">
       <Divider variant="middle" sx={{ mx: 2 }} />
@@ -38,6 +50,31 @@ export const Info: React.FC = () => {
             Info page.
           </Typography>
         </CardContent>
+        <BottomNavigation
+          sx={{
+            width: 500,
+            margin: '60px auto',
+            background: theme.palette.mode === 'dark' ? 'transparent' : '',
+          }}
+          value={value}
+          onChange={handleChange}
+        >
+          <BottomNavigationAction
+            label="Mission"
+            value="mission"
+            icon={<RocketLaunch />}
+          />
+          <BottomNavigationAction
+            label="Vison"
+            value="vision"
+            icon={<TipsAndUpdates />}
+          />
+          <BottomNavigationAction
+            label="Values"
+            value="values"
+            icon={<AutoGraph />}
+          />
+        </BottomNavigation>
       </Card>
     </BaseLayoutOfPages>
   );
