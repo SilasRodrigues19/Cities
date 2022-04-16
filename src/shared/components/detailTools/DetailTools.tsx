@@ -59,7 +59,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
 
   return (
     <Box
-      height={theme.spacing(12)}
+      height={theme.spacing(10)}
       marginX={1}
       padding={1}
       paddingX={2}

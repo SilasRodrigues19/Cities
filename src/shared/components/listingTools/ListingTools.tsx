@@ -31,7 +31,7 @@ export const ListingTools: React.FC<IListingToolsProps> = ({
 
   return (
     <Box
-      height={theme.spacing(5)}
+      height={theme.spacing(10)}
       marginX={1}
       padding={1}
       paddingX={2}
