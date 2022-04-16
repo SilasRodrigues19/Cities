@@ -9,13 +9,18 @@ import Apartment from '@mui/icons-material/Apartment';
 import Info from '@mui/icons-material/Info';
 import Help from '@mui/icons-material/Help';
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism';
+import { Link } from 'react-router-dom';
+
+const navigateTo: any = (to: string, children: string) => (
+  <Link to={to}>{children}</Link>
+);
 
 const actions = [
-  { icon: <VolunteerActivism />, name: 'Donate' },
-  { icon: <Info />, name: 'Info' },
-  { icon: <Help />, name: 'Help' },
-  { icon: <Apartment />, name: 'Cities' },
-  { icon: <SupervisorAccount />, name: 'People' },
+  { icon: navigateTo('/donate', <VolunteerActivism />), name: 'Donate' },
+  { icon: navigateTo('/info', <Info />), name: 'Info' },
+  { icon: navigateTo('/help', <Help />), name: 'Help' },
+  { icon: navigateTo('/cities', <Apartment />), name: 'Cities' },
+  { icon: navigateTo('/people', <SupervisorAccount />), name: 'People' },
 ];
 
 export const Dashboard = () => {
