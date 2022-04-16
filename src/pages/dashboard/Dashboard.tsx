@@ -11,6 +11,8 @@ import Help from '@mui/icons-material/Help';
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism';
 import { Link } from 'react-router-dom';
 
+import { useTheme } from '@mui/material';
+
 const navigateTo: any = (to: string, children: string) => (
   <Link to={to}>{children}</Link>
 );
@@ -24,6 +26,8 @@ const actions = [
 ];
 
 export const Dashboard = () => {
+  const theme = useTheme();
+
   return (
     <BaseLayoutOfPages
       title="Dashboard"
@@ -41,9 +45,22 @@ export const Dashboard = () => {
           flexGrow: 1,
         }}
       >
-        <SpeedDial ariaLabel="SpeedDial basic example" icon={<SpeedDialIcon />}>
+        <SpeedDial ariaLabel="SpeedDial" icon={<SpeedDialIcon />}>
           {actions.map(({ icon, name }) => (
-            <SpeedDialAction key={name} icon={icon} tooltipTitle={name} />
+            <SpeedDialAction
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+                background: theme.palette.mode === 'dark' ? '#cacaca' : '',
+                '&:hover': {
+                  background: theme.palette.mode === 'dark' ? '#a2a2a2' : '',
+                },
+              }}
+              key={name}
+              icon={icon}
+              tooltipTitle={name}
+            />
           ))}
         </SpeedDial>
       </Box>

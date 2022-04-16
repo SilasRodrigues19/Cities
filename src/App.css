@@ -15,6 +15,10 @@ body {
     width: 100%;
 }
 
+a:active {
+    color: inherit;
+}
+
 ::-webkit-scrollbar {
     padding-right: 5px;
     width: 8px;
