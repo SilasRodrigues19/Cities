@@ -1,3 +1,31 @@
 * {
     font-family: 'Karla', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --scrollbar-thumb: #15171a;
+    --scrollbar-thumb-hover: #373c44;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    padding-right: 5px;
+    width: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
 }
