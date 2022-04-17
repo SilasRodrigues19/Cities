@@ -42,7 +42,29 @@
 
 ## About The Project
 
+### Home
+
 [![Preview][product-screenshot]](https://cities-two.vercel.app/home)
+
+### People
+
+[![Preview][product-screenshot2]](https://cities-two.vercel.app/people)
+
+### Cities
+
+[![Preview][product-screenshot3]](https://cities-two.vercel.app/cities)
+
+### Help
+
+[![Preview][product-screenshot4]](https://cities-two.vercel.app/help)
+
+### Info
+
+[![Preview][product-screenshot5]](https://cities-two.vercel.app/info)
+
+### Donate
+
+[![Preview][product-screenshot6]](https://cities-two.vercel.app/donate)
 
 This project was made and adapted during a React Tutorial by <a href="https://www.youtube.com/c/LucasSouzaDev">Lucas Souza Dev</a>
 
@@ -116,6 +138,11 @@ Project Link: [https://github.com/SilasRodrigues19/Cities](https://github.com/Si
 [license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Cities.svg?style=for-the-badge
 [license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 [product-screenshot]: ./public/preview.png
+[product-screenshot2]: ./public/preview2.png
+[product-screenshot3]: ./public/preview3.png
+[product-screenshot4]: ./public/preview4.png
+[product-screenshot5]: ./public/preview5.png
+[product-screenshot6]: ./public/preview6.png
 [license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 
 <br>
