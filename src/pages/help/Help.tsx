@@ -45,7 +45,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
       : 'rgba(0, 0, 0, .03)',
   flexDirection: 'row-reverse',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
+    transform: 'rotate(-270deg)',
   },
   '& .MuiAccordionSummary-content': {
     marginLeft: theme.spacing(1),
@@ -109,7 +109,7 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel2')}
         >
           <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-            <Typography>Item #2</Typography>
+            <Typography>How can I register</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -126,7 +126,9 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel3')}
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-            <Typography>Item #3</Typography>
+            <Typography>
+              How can I show that I'm interested in renting an apartment
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -143,7 +145,7 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel4')}
         >
           <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-            <Typography>Item #4</Typography>
+            <Typography>Is the purchasing process safe</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -160,7 +162,9 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel5')}
         >
           <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-            <Typography>Item #5</Typography>
+            <Typography>
+              How does the buyer-seller relationship work?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
