@@ -15,6 +15,10 @@ body {
     width: 100%;
 }
 
+a {
+    color: #7b1fa2;
+}
+
 a:active {
     color: inherit;
 }
