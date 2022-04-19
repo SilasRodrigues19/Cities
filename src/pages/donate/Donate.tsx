@@ -10,7 +10,10 @@ import {
   CardActions,
   Typography,
   Paper,
+  Theme,
   useTheme,
+  useMediaQuery,
+  Link,
 } from '@mui/material';
 
 import React from 'react';
@@ -22,6 +25,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import bg from '../../images/donate.svg';
 
 export const Donate: React.FC = () => {
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
   const theme = useTheme();
 
   const [expanded, setExpanded] = React.useState(false);
@@ -74,44 +80,72 @@ export const Donate: React.FC = () => {
             make are greatly appreciated.
           </Typography>
         </CardContent>
-        <CardActions sx={{ justifyContent: 'center' }}>
-          <Button
-            sx={{ width: '50rem' }}
-            color="primary"
-            disableElevation
-            variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
-            startIcon={<Icon sx={{ ml: 1 }}>monetization_on_icon</Icon>}
+        <CardActions
+          sx={{
+            maxWidth: '10px',
+            margin: '0 auto',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Link
+            href="https://nubank.com.br/pagar/10x3bc/To0ksDFanP"
+            target="_blank"
+            underline="none"
+            rel="noreferrer"
+            sx={{ display: 'inline-block' }}
           >
-            <Typography
-              variant="button"
-              whiteSpace="nowrap"
-              textOverflow="ellipsis"
-              overflow="hidden"
+            <Button
+              sx={{
+                minWidth: !mdDown ? '100px' : '',
+                padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
+              }}
+              color="primary"
+              disableElevation
+              variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
+              startIcon={<Icon sx={{ ml: 1 }}>monetization_on_icon</Icon>}
             >
-              Donate
-            </Typography>
-          </Button>
-          <Button
-            sx={{ width: '50rem' }}
-            color="primary"
-            disableElevation
-            variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
-            startIcon={<Icon sx={{ ml: 1 }}>share_icon</Icon>}
-          >
-            <Typography
-              variant="button"
-              whiteSpace="nowrap"
-              textOverflow="ellipsis"
-              overflow="hidden"
+              {!smDown && (
+                <Typography
+                  variant="button"
+                  whiteSpace="nowrap"
+                  textOverflow="ellipsis"
+                  overflow="hidden"
+                >
+                  Donate
+                </Typography>
+              )}
+            </Button>
+          </Link>
+          <Link href="#" underline="none" sx={{ display: 'inline-block' }}>
+            <Button
+              sx={{
+                minWidth: !mdDown ? '100px' : '',
+                padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
+              }}
+              color="primary"
+              disableElevation
+              variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
+              startIcon={<Icon sx={{ ml: 1 }}>share_icon</Icon>}
             >
-              Share
-            </Typography>
-          </Button>
+              {!smDown && (
+                <Typography
+                  variant="button"
+                  whiteSpace="nowrap"
+                  textOverflow="ellipsis"
+                  overflow="hidden"
+                >
+                  Share
+                </Typography>
+              )}
+            </Button>
+          </Link>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
+            sx={{ marginLeft: lgUp ? '5px' : '' }}
           >
             <ExpandMoreIcon />
           </ExpandMore>
