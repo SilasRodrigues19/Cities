@@ -58,6 +58,36 @@
             "email": "leandro@domain.com",
             "cityId": 23,
             "fullName": "Leandro Gomes"
+        },
+        {
+            "id": 11,
+            "email": "maycon@domain.com",
+            "cityId": 17,
+            "fullName": "Maykon Duarte"
+        },
+        {
+            "id": 12,
+            "email": "marta@domain.com",
+            "cityId": 21,
+            "fullName": "Marta Duarte"
+        },
+        {
+            "id": 13,
+            "email": "carla@domain.com",
+            "cityId": 21,
+            "fullName": "Carla Matias"
+        },
+        {
+            "id": 14,
+            "email": "marta3@domain.com",
+            "cityId": 21,
+            "fullName": "Marta Pereira"
+        },
+        {
+            "id": 15,
+            "email": "marta4@domain.com",
+            "cityId": 21,
+            "fullName": "Marta Duarte"
         }
     ]
 }
