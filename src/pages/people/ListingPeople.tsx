@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ListingTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
-import { Environment } from '../../shared/environment/index';
+import { Environment } from '../../shared/environment';
 import {
   PeopleService,
   IListingPeople,
@@ -31,8 +31,8 @@ export const ListingPeople: React.FC = () => {
   const { debounce } = useDebounce();
 
   const [rows, setRows] = useState<IListingPeople[]>([]);
-  const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState(0);
 
   const search = useMemo(() => {
     return searchParams.get('search') || '';
@@ -69,7 +69,7 @@ export const ListingPeople: React.FC = () => {
           showInputSearch
           newTextButton="Add"
           searchText={search}
-          changeInputSearch={(texto) =>
+          changeInputSearch={texto =>
             setSearchParams({ search: texto, page: '1' }, { replace: true })
           }
         />
@@ -138,7 +138,7 @@ export const ListingPeople: React.FC = () => {
                   <Pagination
                     page={page}
                     count={Math.ceil(totalCount / Environment.ROWS_LIMIT)}
-                    onChange={(e, newPage) => setSearchParams({ search, page: newPage.toString() }, { replace: true })}
+                    onChange={(_, newPage) => setSearchParams({ search, page: newPage.toString() }, { replace: true })}
                   />
                 </TableCell>
               </TableRow>
