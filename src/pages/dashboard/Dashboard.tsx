@@ -37,7 +37,7 @@ export const Dashboard = () => {
     >
       <Box
         sx={{
-          position: 'absolute',
+          position: 'fixed',
           bottom: 95,
           right: 45,
           height: 320,
