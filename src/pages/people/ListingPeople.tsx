@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ListingTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
 import { Environment } from '../../shared/environment';
@@ -20,6 +20,8 @@ import {
   useTheme,
   LinearProgress,
   Pagination,
+  IconButton,
+  Icon,
 } from '@mui/material';
 
 export const ListingPeople: React.FC = () => {
@@ -29,6 +31,7 @@ export const ListingPeople: React.FC = () => {
   const colorThemeStyle = theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca';
 
   const { debounce } = useDebounce();
+  const navigate = useNavigate();
 
   const [rows, setRows] = useState<IListingPeople[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,6 +64,19 @@ export const ListingPeople: React.FC = () => {
     });
   }, [search, page]);
 
+  const handleDelete = (id: number) => {
+    if (confirm('Are you sure you want to delete?')) {
+      PeopleService.deleteById(id).then((result) => {
+        if (result instanceof Error) {
+          alert(result.message);
+          return;
+        }
+        setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
+        alert('Successfully deleted');
+      });
+    }
+  };
+
   return (
     <BaseLayoutOfPages
       title="List of people"
@@ -69,7 +85,7 @@ export const ListingPeople: React.FC = () => {
           showInputSearch
           newTextButton="Add"
           searchText={search}
-          changeInputSearch={texto =>
+          changeInputSearch={(texto) =>
             setSearchParams({ search: texto, page: '1' }, { replace: true })
           }
         />
@@ -87,9 +103,9 @@ export const ListingPeople: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Action</TableCell>
+              <TableCell width="8%">Action</TableCell>
               <TableCell>Fullname</TableCell>
-              <TableCell>Mail</TableCell>
+              <TableCell width="45%">Mail</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -100,7 +116,15 @@ export const ListingPeople: React.FC = () => {
                     color: colorThemeStyle,
                   }}
                 >
-                  -
+                  <IconButton
+                    size="small"
+                    onClick={() => navigate(`/people/details/${id}`)}
+                  >
+                    <Icon>mode_edit_outlined</Icon>
+                  </IconButton>
+                  <IconButton size="small" onClick={() => handleDelete(id)}>
+                    <Icon>delete_outlined</Icon>
+                  </IconButton>
                 </TableCell>
                 <TableCell
                   sx={{
@@ -132,13 +156,18 @@ export const ListingPeople: React.FC = () => {
                 </TableCell>
               </TableRow>
             )}
-            {(totalCount > 0 && totalCount > Environment.ROWS_LIMIT) && (
+            {totalCount > 0 && totalCount > Environment.ROWS_LIMIT && (
               <TableRow>
                 <TableCell colSpan={3}>
                   <Pagination
                     page={page}
                     count={Math.ceil(totalCount / Environment.ROWS_LIMIT)}
-                    onChange={(_, newPage) => setSearchParams({ search, page: newPage.toString() }, { replace: true })}
+                    onChange={(_, newPage) =>
+                      setSearchParams(
+                        { search, page: newPage.toString() },
+                        { replace: true }
+                      )
+                    }
                   />
                 </TableCell>
               </TableRow>
