@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ListingTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
@@ -24,8 +24,36 @@ import {
   Icon,
 } from '@mui/material';
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const theme = useTheme();
   const colorThemeStyle = theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca';
@@ -65,16 +93,15 @@ export const ListingPeople: React.FC = () => {
   }, [search, page]);
 
   const handleDelete = (id: number) => {
-    if (confirm('Are you sure you want to delete?')) {
-      PeopleService.deleteById(id).then((result) => {
-        if (result instanceof Error) {
-          alert(result.message);
-          return;
-        }
+    PeopleService.deleteById(id).then((result) => {
+      if (result instanceof Error) {
+        alert(result.message);
+      } else {
+        setOpen(false);
         setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
         alert('Successfully deleted');
-      });
-    }
+      }
+    });
   };
 
   return (
@@ -122,9 +149,30 @@ export const ListingPeople: React.FC = () => {
                   >
                     <Icon>mode_edit_outlined</Icon>
                   </IconButton>
-                  <IconButton size="small" onClick={() => handleDelete(id)}>
+                  <IconButton size="small" onClick={handleClickOpen}>
                     <Icon>delete_outlined</Icon>
                   </IconButton>
+                  <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                  >
+                    <DialogTitle>
+                      {'Are you sure you want to delete?'}
+                    </DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-slide-description">
+                        If you click on <strong>confirm</strong> the
+                        registration will be permanently deleted.
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={() => handleDelete(id)}>Confirm</Button>
+                      <Button onClick={handleClose}>Cancel</Button>
+                    </DialogActions>
+                  </Dialog>
                 </TableCell>
                 <TableCell
                   sx={{
