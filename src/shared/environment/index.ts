@@ -6,7 +6,7 @@ export const Environment = {
   /**
    * Define a quantidade de linhas a ser carregada por padrão nas listagens
    */
-  ROWS_LIMIT: 7,
+  ROWS_LIMIT: 5,
   /**
    * Placeholder dos inputs.
    */
