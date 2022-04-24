@@ -6,7 +6,7 @@ import { Environment } from '../../shared/environment';
 import {
   PeopleService,
   IListingPeople,
-} from '../../shared/services/api/pessoas/PeopleService';
+} from '../../shared/services/api/people/PeopleService';
 import { useDebounce } from '../../shared/hooks';
 import {
   Table,
