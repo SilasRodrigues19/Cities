@@ -85,6 +85,7 @@ export const ListingPeople: React.FC = () => {
           showInputSearch
           newTextButton="Add"
           searchText={search}
+          changeNewButton={() => navigate('/people/details/new')}
           changeInputSearch={(texto) =>
             setSearchParams({ search: texto, page: '1' }, { replace: true })
           }
