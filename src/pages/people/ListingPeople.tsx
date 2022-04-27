@@ -24,6 +24,8 @@ import {
   Icon,
 } from '@mui/material';
 
+import toast, { Toaster } from "react-hot-toast";
+
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -47,13 +49,17 @@ export const ListingPeople: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    
 
     debounce(() => {
       PeopleService.getAll(page, search).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
-          alert(result.message);
+          
+          toast.error(result.message, {
+            duration: 4000,
+          });
           return;
         }
         console.log(result);
@@ -63,6 +69,7 @@ export const ListingPeople: React.FC = () => {
       });
     });
   }, [search, page]);
+
 
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete?')) {
@@ -78,6 +85,7 @@ export const ListingPeople: React.FC = () => {
   };
 
   return (
+    
     <BaseLayoutOfPages
       title="List of people"
       toolbar={
@@ -92,6 +100,7 @@ export const ListingPeople: React.FC = () => {
         />
       }
     >
+      <Toaster />
       <TableContainer
         component={Paper}
         variant="outlined"
