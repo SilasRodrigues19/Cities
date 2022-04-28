@@ -24,7 +24,7 @@ import {
   Icon,
 } from '@mui/material';
 
-import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,43 +49,49 @@ export const ListingPeople: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    
 
     debounce(() => {
       PeopleService.getAll(page, search).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
-          
           toast.error(result.message, {
-            duration: 4000,
+            duration: 5000,
+            position: 'top-right',
           });
           return;
         }
         console.log(result);
-
+        toast.success('Dados carregados', {
+          duration: 5000,
+          position: 'top-right',
+        });
         setTotalCount(result.totalCount);
         setRows(result.data);
       });
     });
   }, [search, page]);
 
-
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete?')) {
       PeopleService.deleteById(id).then((result) => {
         if (result instanceof Error) {
-          alert(result.message);
+          toast.error(result.message, {
+            duration: 5000,
+            position: 'top-right',
+          });
           return;
         }
         setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
-        alert('Successfully deleted');
+        toast.success('Successfully deleted', {
+          duration: 5000,
+          position: 'top-right',
+        });
       });
     }
   };
 
   return (
-    
     <BaseLayoutOfPages
       title="List of people"
       toolbar={
@@ -100,7 +106,17 @@ export const ListingPeople: React.FC = () => {
         />
       }
     >
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            width: '100%',
+            background: theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca',
+            color: theme.palette.mode == 'dark' ? '#1e1e1e' : '#fff',
+            padding: '10px 50px',
+            userSelect: 'none',
+          },
+        }}
+      />
       <TableContainer
         component={Paper}
         variant="outlined"
