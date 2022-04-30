@@ -149,8 +149,7 @@ export const Donate: React.FC = () => {
             aria-label="show more"
             sx={{
               marginLeft: lgUp ? '5px' : '',
-              /* position: lgUp ? 'relative' : '',
-              left: lgUp ? '15rem' : '', */
+
               position: 'relative',
               left: '1rem',
             }}
