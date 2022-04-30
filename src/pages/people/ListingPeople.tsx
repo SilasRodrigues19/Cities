@@ -62,7 +62,7 @@ export const ListingPeople: React.FC = () => {
           return;
         }
         console.log(result);
-        toast.success('Dados carregados', {
+        toast.success('Successfully loaded', {
           duration: 5000,
           position: 'top-right',
         });
