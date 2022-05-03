@@ -62,6 +62,7 @@ export const ListingPeople: React.FC = () => {
           return;
         }
         console.log(result);
+        toast.remove();
         toast.success('Successfully loaded', {
           duration: 5000,
           position: 'top-right',
@@ -83,7 +84,7 @@ export const ListingPeople: React.FC = () => {
           return;
         }
         setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
-        toast.success('Successfully deleted', {
+        toast.error('Deleted', {
           duration: 5000,
           position: 'top-right',
         });
