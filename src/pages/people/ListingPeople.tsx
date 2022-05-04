@@ -22,7 +22,9 @@ import {
   Pagination,
   IconButton,
   Icon,
+  Tooltip,
 } from '@mui/material';
+
 
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -147,10 +149,14 @@ export const ListingPeople: React.FC = () => {
                     size="small"
                     onClick={() => navigate(`/people/details/${id}`)}
                   >
-                    <Icon>mode_edit_outlined</Icon>
+                  <Tooltip title="Edit">
+                      <Icon>mode_edit_outlined</Icon>
+                  </Tooltip>
                   </IconButton>
                   <IconButton size="small" onClick={() => handleDelete(id)}>
-                    <Icon>delete_outlined</Icon>
+                  <Tooltip title="Delete">
+                      <Icon>delete_icon</Icon>
+                  </Tooltip>
                   </IconButton>
                 </TableCell>
                 <TableCell
