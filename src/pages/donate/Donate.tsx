@@ -22,6 +22,8 @@ import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import { FacebookShareButton } from 'react-share';
+
 import bg from '../../images/donate.svg';
 
 export const Donate: React.FC = () => {
@@ -119,28 +121,38 @@ export const Donate: React.FC = () => {
             </Button>
           </Link>
           <Link href="#" underline="none" sx={{ display: 'inline-block' }}>
-            <Button
-              sx={{
-                minWidth: !mdDown ? '100px' : '',
-                width: lgUp ? '25rem' : '5rem',
-                padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
-              }}
-              color="primary"
-              disableElevation
-              variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
-              startIcon={<Icon sx={{ ml: 1 }}>share_icon</Icon>}
+            <FacebookShareButton
+              url={'https://cities-two.vercel.app/donate'}
+              quote={
+                'Donate any amount to support the project. Click to learn more'
+              }
+              hashtag={'#cities'}
             >
-              {!smDown && (
-                <Typography
-                  variant="button"
-                  whiteSpace="nowrap"
-                  textOverflow="ellipsis"
-                  overflow="hidden"
-                >
-                  Share
-                </Typography>
-              )}
-            </Button>
+              <Button
+                sx={{
+                  minWidth: !mdDown ? '100px' : '',
+                  width: lgUp ? '25rem' : '5rem',
+                  padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
+                }}
+                color="primary"
+                disableElevation
+                variant={
+                  theme.palette.mode == 'light' ? 'outlined' : 'contained'
+                }
+                startIcon={<Icon sx={{ ml: 1 }}>facebook</Icon>}
+              >
+                {!smDown && (
+                  <Typography
+                    variant="button"
+                    whiteSpace="nowrap"
+                    textOverflow="ellipsis"
+                    overflow="hidden"
+                  >
+                    Share
+                  </Typography>
+                )}
+              </Button>
+            </FacebookShareButton>
           </Link>
           <ExpandMore
             expand={expanded}
