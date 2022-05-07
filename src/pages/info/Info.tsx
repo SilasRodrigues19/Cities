@@ -7,17 +7,25 @@ import {
   CardContent,
   Typography,
   Paper,
+  Theme,
   useTheme,
+  useMediaQuery,
+  Grid,
 } from '@mui/material';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
+import { styled } from '@mui/material/styles';
+
 import React from 'react';
+import Image from 'material-ui-image';
+
 import bg from '../../images/about_us.svg';
 import rocketImage from '../../images/rocket.svg';
-import Image from 'material-ui-image';
+import thoughtsImage from '../../images/thoughts.svg';
+import environmentImage from '../../images/environment.svg';
 
 import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
 
@@ -54,6 +62,14 @@ function a11yProps(index: number) {
   };
 }
 
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  font: 'monospace',
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 export const Info: React.FC = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -62,14 +78,12 @@ export const Info: React.FC = () => {
     setValue(newValue);
   };
 
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+
   return (
     <BaseLayoutOfPages title="Information">
       <Divider variant="middle" sx={{ mx: 2 }} />
-      <Card
-        sx={{ width: '75%', margin: '30px auto' }}
-        component={Paper}
-        variant="outlined"
-      >
+      <Card sx={{ width: '75%', margin: '30px auto' }} component={Paper}>
         <CardHeader title="About US" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
         <CardMedia
@@ -88,7 +102,6 @@ export const Info: React.FC = () => {
         <Box sx={{ width: '100%' }}>
           <Box
             sx={{
-              borderBottom: 1,
               borderColor: 'divider',
               display: 'flex',
               justifyContent: 'center',
@@ -124,11 +137,12 @@ export const Info: React.FC = () => {
           </Box>
           <TabPanel value={value} index={0}>
             <Paper
-              variant="outlined"
+              elevation={2}
               sx={{
-                width: '80%',
-                height: '80%',
+                width: '90%',
+                height: '50%',
                 margin: '0 auto',
+                padding: '30px 0',
                 background: 'transparent',
               }}
             >
@@ -136,6 +150,7 @@ export const Info: React.FC = () => {
                 variant="subtitle1"
                 color="text.secondary"
                 align="center"
+                margin="15px 30px"
                 paragraph={true}
               >
                 Our mission is to unite people who are willing to negotiate real
@@ -146,18 +161,99 @@ export const Info: React.FC = () => {
                 src={rocketImage}
                 style={{
                   background: 'transparent',
-                  width: '85%',
-                  height: '85%',
+                  width: 'auto',
                   margin: '0 auto',
+                  paddingTop: 'calc(35%)',
                 }}
               />
             </Paper>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Vision
+            <Paper
+              elevation={2}
+              sx={{
+                width: '90%',
+                height: '50%',
+                margin: '0 auto',
+                padding: '30px 0',
+                background: 'transparent',
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                align="center"
+                margin="15px 30px"
+                paragraph={true}
+              >
+                We seek to solve all the bureaucratic part in the search and
+                negotiation for the acquisition of a property.
+              </Typography>
+              <Image
+                src={thoughtsImage}
+                style={{
+                  background: 'transparent',
+                  width: 'auto',
+                  margin: '0 auto',
+                  paddingTop: 'calc(35%)',
+                }}
+              />
+            </Paper>
           </TabPanel>
           <TabPanel value={value} index={2}>
-            Values
+            <Paper
+              elevation={2}
+              sx={{
+                width: '90%',
+                height: '50%',
+                margin: '0 auto',
+                padding: '30px 0',
+                background: 'transparent',
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                align="center"
+                margin="15px 30px"
+                paragraph={true}
+              >
+                We seek to solve all the bureaucratic part in the search and
+                negotiation for the acquisition of a property.
+              </Typography>
+              <Box>
+                <Grid
+                  container
+                  spacing={2}
+                  flexDirection={smDown ? 'column' : 'row'}
+                  columnGap={smDown ? '2rem' : ''}
+                >
+                  <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
+                    <Item>We produce outstanding outcomes</Item>
+                  </Grid>
+                  <Grid item xs={smDown ? 2 : 2} sx={{ maxWidth: '100%' }}>
+                    <Item>Transparency</Item>
+                  </Grid>
+                  <Grid item xs={smDown ? 2 : 4} sx={{ maxWidth: '100%' }}>
+                    <Item>
+                      It's only good for us if it's good for the customer
+                    </Item>
+                  </Grid>
+                  <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
+                    <Item>Respectful and ethical behavior</Item>
+                  </Grid>
+                </Grid>
+              </Box>
+              <Image
+                src={environmentImage}
+                style={{
+                  background: 'transparent',
+                  width: 'auto',
+                  margin: '0 auto',
+                  paddingTop: 'calc(35%)',
+                }}
+              />
+            </Paper>
           </TabPanel>
         </Box>
       </Card>
