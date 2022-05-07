@@ -16,6 +16,8 @@ import Box from '@mui/material/Box';
 
 import React from 'react';
 import bg from '../../images/about_us.svg';
+import rocketImage from '../../images/rocket.svg';
+import Image from 'material-ui-image';
 
 import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
 
@@ -81,9 +83,7 @@ export const Info: React.FC = () => {
           alt="Paella dish"
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            Info page.
-          </Typography>
+          <Typography variant="body2" color="text.secondary"></Typography>
         </CardContent>
         <Box sx={{ width: '100%' }}>
           <Box
@@ -123,7 +123,35 @@ export const Info: React.FC = () => {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            Mission
+            <Paper
+              variant="outlined"
+              sx={{
+                width: '80%',
+                height: '80%',
+                margin: '0 auto',
+                background: 'transparent',
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                align="center"
+                paragraph={true}
+              >
+                Our mission is to unite people who are willing to negotiate real
+                estate and we seek to be a segment reference in the metropolitan
+                region of São Paulo.
+              </Typography>
+              <Image
+                src={rocketImage}
+                style={{
+                  background: 'transparent',
+                  width: '85%',
+                  height: '85%',
+                  margin: '0 auto',
+                }}
+              />
+            </Paper>
           </TabPanel>
           <TabPanel value={value} index={1}>
             Vision
