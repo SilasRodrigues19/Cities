@@ -25,7 +25,6 @@ import {
   Tooltip,
 } from '@mui/material';
 
-
 import toast, { Toaster } from 'react-hot-toast';
 
 export const ListingPeople: React.FC = () => {
@@ -57,6 +56,7 @@ export const ListingPeople: React.FC = () => {
         setIsLoading(false);
 
         if (result instanceof Error) {
+          toast.remove();
           toast.error(result.message, {
             duration: 5000,
             position: 'top-right',
@@ -149,14 +149,14 @@ export const ListingPeople: React.FC = () => {
                     size="small"
                     onClick={() => navigate(`/people/details/${id}`)}
                   >
-                  <Tooltip title="Edit">
+                    <Tooltip title="Edit">
                       <Icon>mode_edit_outlined</Icon>
-                  </Tooltip>
+                    </Tooltip>
                   </IconButton>
                   <IconButton size="small" onClick={() => handleDelete(id)}>
-                  <Tooltip title="Delete">
+                    <Tooltip title="Delete">
                       <Icon>delete_icon</Icon>
-                  </Tooltip>
+                    </Tooltip>
                   </IconButton>
                 </TableCell>
                 <TableCell
