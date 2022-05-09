@@ -79,6 +79,8 @@ export const Info: React.FC = () => {
   };
 
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   return (
     <BaseLayoutOfPages title="Information">
@@ -229,18 +231,18 @@ export const Info: React.FC = () => {
                   columnGap={smDown ? '2rem' : ''}
                 >
                   <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item>We produce outstanding outcomes</Item>
+                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>We produce outstanding outcomes</Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 2} sx={{ maxWidth: '100%' }}>
-                    <Item>Transparency</Item>
+                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>Transparency</Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 4} sx={{ maxWidth: '100%' }}>
-                    <Item>
+                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>
                       It's only good for us if it's good for the customer
                     </Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item>Respectful and ethical behavior</Item>
+                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>Respectful and ethical behavior</Item>
                   </Grid>
                 </Grid>
               </Box>
