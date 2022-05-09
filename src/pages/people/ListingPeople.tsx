@@ -77,7 +77,8 @@ export const ListingPeople: React.FC = () => {
 
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete?')) {
-      PeopleService.deleteById(id).then((result) => {
+      PeopleService.deleteById(id)
+      .then((result) => {
         if (result instanceof Error) {
           toast.error(result.message, {
             duration: 5000,
