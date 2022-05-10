@@ -24,7 +24,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { FacebookShareButton } from 'react-share';
 
-import bg from '../../images/donate.svg';
+import donateImage from '../../images/donate.svg';
 
 export const Donate: React.FC = () => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
@@ -72,7 +72,7 @@ export const Donate: React.FC = () => {
           }}
           component="img"
           height="194"
-          image={bg}
+          image={donateImage}
           alt="Donate background"
         />
         <CardContent>

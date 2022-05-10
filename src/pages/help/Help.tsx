@@ -19,7 +19,7 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
-import bg from '../../images/faq.svg';
+import faqImage from '../../images/faq.svg';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -81,8 +81,8 @@ export const Help: React.FC = () => {
           }}
           component="img"
           height="194"
-          image={bg}
-          alt="Paella dish"
+          image={faqImage}
+          alt="FAQ Image"
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">

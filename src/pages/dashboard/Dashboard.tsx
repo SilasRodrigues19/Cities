@@ -1,9 +1,7 @@
 import { BaseLayoutOfPages } from '../../shared/layouts';
 import { DetailTools } from '../../shared/components';
-import Box from '@mui/material/Box';
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
+
+import { useTheme, Box, SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
 import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
 import Apartment from '@mui/icons-material/Apartment';
 import Info from '@mui/icons-material/Info';
@@ -11,7 +9,6 @@ import Help from '@mui/icons-material/Help';
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism';
 import { Link } from 'react-router-dom';
 
-import { useTheme } from '@mui/material';
 
 const navigateTo: any = (to: string, children: string) => (
   <Link to={to}>{children}</Link>

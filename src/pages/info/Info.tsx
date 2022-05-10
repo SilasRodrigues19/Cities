@@ -11,21 +11,20 @@ import {
   useTheme,
   useMediaQuery,
   Grid,
+  Tab,
+  Tabs,
+  Box
 } from '@mui/material';
-
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
 
 import { styled } from '@mui/material/styles';
 
 import React from 'react';
 import Image from 'material-ui-image';
 
-import bg from '../../images/about_us.svg';
+import aboutImage from '../../images/about_us.svg';
 import rocketImage from '../../images/rocket.svg';
 import thoughtsImage from '../../images/thoughts.svg';
-import environmentImage from '../../images/environment.svg';
+import smileyImage from '../../images/smiley.svg';
 
 import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
 
@@ -95,8 +94,8 @@ export const Info: React.FC = () => {
           }}
           component="img"
           height="194"
-          image={bg}
-          alt="Paella dish"
+          image={aboutImage}
+          alt="About Image"
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary"></Typography>
@@ -247,7 +246,7 @@ export const Info: React.FC = () => {
                 </Grid>
               </Box>
               <Image
-                src={environmentImage}
+                src={smileyImage}
                 style={{
                   background: 'transparent',
                   width: 'auto',

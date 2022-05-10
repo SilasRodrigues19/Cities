@@ -9,7 +9,7 @@ import {
   Paper,
 } from '@mui/material';
 
-import bg from '../../images/city.svg';
+import cityImage from '../../images/city.svg';
 
 export const Cities: React.FC = () => {
   return (
@@ -32,8 +32,8 @@ export const Cities: React.FC = () => {
           }}
           component="img"
           height="194"
-          image={bg}
-          alt="Paella dish"
+          image={cityImage}
+          alt="City Image"
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
