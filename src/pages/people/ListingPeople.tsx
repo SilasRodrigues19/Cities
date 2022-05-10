@@ -23,6 +23,7 @@ import {
   IconButton,
   Icon,
   Tooltip,
+  Stack,
 } from '@mui/material';
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -64,11 +65,14 @@ export const ListingPeople: React.FC = () => {
           return;
         }
         console.log(result);
-        toast.remove();
-        toast.success('Successfully loaded', {
-          duration: 5000,
-          position: 'top-right',
-        });
+        if(result.totalCount > 1) {
+          toast.remove();
+          toast.success('Successfully loaded', {
+            duration: 5000,
+            position: 'top-right',
+          });
+        }
+        if(result.totalCount === 0) toast.remove();
         setTotalCount(result.totalCount);
         setRows(result.data);
       });
@@ -193,7 +197,9 @@ export const ListingPeople: React.FC = () => {
             {totalCount > 0 && totalCount > Environment.ROWS_LIMIT && (
               <TableRow>
                 <TableCell colSpan={3}>
+                  <Stack spacing={2}>
                   <Pagination
+                    shape="rounded"
                     page={page}
                     count={Math.ceil(totalCount / Environment.ROWS_LIMIT)}
                     onChange={(_, newPage) =>
@@ -203,6 +209,7 @@ export const ListingPeople: React.FC = () => {
                       )
                     }
                   />
+                  </Stack>
                 </TableCell>
               </TableRow>
             )}
