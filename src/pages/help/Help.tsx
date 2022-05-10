@@ -109,15 +109,11 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel2')}
         >
           <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-            <Typography>How can I register</Typography>
+            <Typography>How can I register?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              This page has not yet been built, but there is a registration and login page.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -127,16 +123,12 @@ export const Help: React.FC = () => {
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
             <Typography>
-              How can I show that I'm interested in renting an apartment
+              How can I show that I'm interested in renting an apartment?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              There will be options to show interest in the property on the cities page.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -145,15 +137,11 @@ export const Help: React.FC = () => {
           onChange={handleChange('panel4')}
         >
           <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-            <Typography>Is the purchasing process safe</Typography>
+            <Typography>Is the purchasing process safe?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              Yes, the amount paid is locked on the platform until the property is released.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -168,11 +156,7 @@ export const Help: React.FC = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              The buyer and seller only negotiate, the payment process involves the intervention of our team.
             </Typography>
           </AccordionDetails>
         </Accordion>
