@@ -148,16 +148,19 @@ export const Info: React.FC = () => {
               }}
             >
               <Typography
-                variant="subtitle1"
+                variant="body1"
                 color="text.secondary"
                 align="center"
                 margin="15px 30px"
                 paragraph={true}
+                fontWeight="bold"
+                letterSpacing="2px"
               >
                 Our mission is to unite people who are willing to negotiate real
                 estate and we seek to be a segment reference in the metropolitan
                 region of São Paulo.
               </Typography>
+              <Divider variant="middle" sx={{ mx: 2 }} />
               <Image
                 src={rocketImage}
                 style={{
@@ -181,15 +184,18 @@ export const Info: React.FC = () => {
               }}
             >
               <Typography
-                variant="subtitle1"
+                variant="body1"
                 color="text.secondary"
                 align="center"
                 margin="15px 30px"
                 paragraph={true}
+                fontWeight="bold"
+                letterSpacing="2px"
               >
                 We seek to solve all the bureaucratic part in the search and
                 negotiation for the acquisition of a property.
               </Typography>
+              <Divider variant="middle" sx={{ mx: 2 }} />
               <Image
                 src={thoughtsImage}
                 style={{
@@ -213,15 +219,17 @@ export const Info: React.FC = () => {
               }}
             >
               <Typography
-                variant="subtitle1"
+                variant="body1"
                 color="text.secondary"
                 align="center"
                 margin="15px 30px"
                 paragraph={true}
+                fontWeight="bold"
+                letterSpacing="2px"
               >
-                We seek to solve all the bureaucratic part in the search and
-                negotiation for the acquisition of a property.
+                Our values ​​can be summarized in a few principles, the main ones are:
               </Typography>
+              <Divider variant="middle" sx={{ mx: 2 }} />
               <Box>
                 <Grid
                   container
@@ -230,18 +238,18 @@ export const Info: React.FC = () => {
                   columnGap={smDown ? '2rem' : ''}
                 >
                   <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>We produce outstanding outcomes</Item>
+                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>We produce outstanding outcomes</Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 2} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>Transparency</Item>
+                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>Transparency</Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 4} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>
+                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>
                       It's only good for us if it's good for the customer
                     </Item>
                   </Grid>
                   <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{boxShadow: !smDown ? 'none' : ''}}>Respectful and ethical behavior</Item>
+                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>Respectful and ethical behavior</Item>
                   </Grid>
                 </Grid>
               </Box>
@@ -250,7 +258,7 @@ export const Info: React.FC = () => {
                 style={{
                   background: 'transparent',
                   width: 'auto',
-                  margin: '0 auto',
+                  margin: smDown ? '10px 0' : '0 auto',
                   paddingTop: 'calc(35%)',
                 }}
               />
