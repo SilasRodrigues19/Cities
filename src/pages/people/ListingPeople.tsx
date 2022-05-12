@@ -24,12 +24,17 @@ import {
   Icon,
   Tooltip,
   Stack,
+  useMediaQuery,
+  Theme,
 } from '@mui/material';
 
 import toast, { Toaster } from 'react-hot-toast';
 
+import Swal from 'sweetalert2'
+
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   const theme = useTheme();
   const colorThemeStyle = theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca';
@@ -64,7 +69,8 @@ export const ListingPeople: React.FC = () => {
           });
           return;
         }
-        console.log(result);
+        /*
+        Success Message during debounce
         if(result.totalCount > 1) {
           toast.remove();
           toast.success('Successfully loaded', {
@@ -73,15 +79,28 @@ export const ListingPeople: React.FC = () => {
           });
         }
         if(result.totalCount === 0) toast.remove();
+        */
         setTotalCount(result.totalCount);
         setRows(result.data);
       });
     });
   }, [search, page]);
 
+  
   const handleDelete = (id: number) => {
-    if (confirm('Are you sure you want to delete?')) {
-      PeopleService.deleteById(id)
+    Swal.fire({
+      title: 'Are you sure you want to delete?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#7b1fa2',
+      cancelButtonColor: '#f1556c',
+      confirmButtonText: 'Yes, delete it!',
+      iconColor: '#7b1fa2',
+      background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        PeopleService.deleteById(id)
       .then((result) => {
         if (result instanceof Error) {
           toast.error(result.message, {
@@ -91,12 +110,17 @@ export const ListingPeople: React.FC = () => {
           return;
         }
         setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
-        toast.error('Deleted', {
-          duration: 5000,
-          position: 'top-right',
-        });
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'The user has been deleted.',
+          icon: 'success',
+          background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+          iconColor: '#7b1fa2',
+          confirmButtonColor: '#7b1fa2',
+        })
       });
-    }
+      }
+    })
   };
 
   return (
@@ -117,10 +141,11 @@ export const ListingPeople: React.FC = () => {
       <Toaster
         toastOptions={{
           style: {
-            width: '100%',
+            width: smDown ? '70%' : '100%',
             background: theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca',
             color: theme.palette.mode == 'dark' ? '#1e1e1e' : '#fff',
-            padding: '10px 50px',
+            padding: smDown ? '10px 20px' : '10px 50px',
+            margin: smDown ? '0 auto' : '',
             userSelect: 'none',
           },
         }}

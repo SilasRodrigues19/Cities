@@ -6,9 +6,14 @@ import { DetailTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
 import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
+import Swal from 'sweetalert2'
+import { useTheme } from '@mui/material';
+
 export const PeopleDetail: React.FC = () => {
+  
   const { id = 'new' } = useParams<'id'>();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
@@ -41,24 +46,43 @@ export const PeopleDetail: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
-  if (confirm(`Are you sure you want to delete ${name}?`)) {
-    PeopleService.deleteById(id)
-    .then((result) => {
-      if (result instanceof Error) {
-        toast.error(result.message, {
-          duration: 5000,
-          position: 'top-right',
-        });
-        return;
-      }
-      toast.error('Deleted', {
-        duration: 5000,
-        position: 'top-right',
+    Swal.fire({
+      title: `Are you sure you want to delete ${name}?`,
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#7b1fa2',
+      cancelButtonColor: '#f1556c',
+      confirmButtonText: 'Yes, delete it!',
+      iconColor: '#7b1fa2',
+      background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        PeopleService.deleteById(id)
+      .then((result) => {
+        if (result instanceof Error) {
+          toast.error(result.message, {
+            duration: 5000,
+            position: 'top-right',
+          });
+          return;
+        }
+        Swal.fire({
+          title: 'Deleted!',
+          text: `${name} has been deleted.`,
+          icon: 'success',
+          background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+          iconColor: '#7b1fa2',
+          confirmButtonColor: '#7b1fa2',
+        })
       });
-      navigate('/people');
-    });
-  }
-};
+      setTimeout(() => {
+        navigate('/people');
+      }, 3000);
+      }
+    })
+  };
+
 
   return (
     <BaseLayoutOfPages
