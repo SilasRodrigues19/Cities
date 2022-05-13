@@ -31,6 +31,7 @@ import {
 import toast, { Toaster } from 'react-hot-toast';
 
 import Swal from 'sweetalert2'
+import 'animate.css';
 
 export const ListingPeople: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -58,11 +59,11 @@ export const ListingPeople: React.FC = () => {
     setIsLoading(true);
 
     debounce(() => {
+      toast.remove();
       PeopleService.getAll(page, search).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
-          toast.remove();
           toast.error(result.message, {
             duration: 5000,
             position: 'top-right',
@@ -90,7 +91,8 @@ export const ListingPeople: React.FC = () => {
   const handleDelete = (id: number) => {
     Swal.fire({
       title: 'Are you sure you want to delete?',
-      text: "You won't be able to revert this!",
+      color: theme.palette.mode == 'light' ? '#979797' : '#3B3B3B',
+      html: "You <strong>won't be able</strong> to revert this!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#7b1fa2',
@@ -98,6 +100,13 @@ export const ListingPeople: React.FC = () => {
       confirmButtonText: 'Yes, delete it!',
       iconColor: '#7b1fa2',
       background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+        icon: 'animate__animated animate__swing animate__delay-1s',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutDown'
+      }
     }).then((result) => {
       if (result.isConfirmed) {
         PeopleService.deleteById(id)
@@ -117,6 +126,13 @@ export const ListingPeople: React.FC = () => {
           background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
           iconColor: '#7b1fa2',
           confirmButtonColor: '#7b1fa2',
+          showClass: {
+            popup: 'animate__animated animate__backInUp',
+            icon: 'animate__animated animate__rollIn animate__delay-1s'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__backOutUp'
+          }
         })
       });
       }
