@@ -25,7 +25,7 @@ import {
   Tooltip,
   Stack,
   useMediaQuery,
-  Theme,
+  Theme
 } from '@mui/material';
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -178,9 +178,9 @@ export const ListingPeople: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell width="8%">Action</TableCell>
-              <TableCell>Fullname</TableCell>
-              <TableCell width="45%">Mail</TableCell>
+              <TableCell sx={{borderBottom: 'none',}} width="8%">Action</TableCell>
+              <TableCell sx={{borderBottom: 'none',}}>Fullname</TableCell>
+              <TableCell sx={{borderBottom: 'none',}} width="45%">Mail</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -189,6 +189,7 @@ export const ListingPeople: React.FC = () => {
                 <TableCell
                   sx={{
                     color: colorThemeStyle,
+                    borderBottom: '1px solid rgba(80, 80, 80, .1)',
                   }}
                 >
                   <IconButton
@@ -208,6 +209,7 @@ export const ListingPeople: React.FC = () => {
                 <TableCell
                   sx={{
                     color: colorThemeStyle,
+                    borderBottom: '1px solid rgba(80, 80, 80, .1)',
                   }}
                 >
                   {fullName}
@@ -215,6 +217,7 @@ export const ListingPeople: React.FC = () => {
                 <TableCell
                   sx={{
                     color: colorThemeStyle,
+                    borderBottom: '1px solid rgba(80, 80, 80, .1)',
                   }}
                 >
                   {email}
