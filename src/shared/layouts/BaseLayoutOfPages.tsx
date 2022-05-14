@@ -28,7 +28,21 @@ export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
-    <Box height="100%" display="flex" flexDirection="column" gap={1}>
+    <Box height="100%" display="flex" flexDirection="column" gap={1}
+      sx={{
+        "&::before": {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          width: '100%',
+          height: '100%',
+          background: 'url(https://cdn.pixabay.com/photo/2017/07/14/09/39/city-2503261_1280.jpg) no-repeat center / cover',
+          opacity: theme.palette.mode === 'light' ? '.1' : '.02',
+          pointerEvents: 'none',
+        }
+      }}
+    >
       <Box
         display="flex"
         alignItems="center"
