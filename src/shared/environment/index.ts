@@ -20,5 +20,7 @@ export const Environment = {
    */
   BASE_URL: development
     ? 'http://localhost:3333'
-    : 'https://test-seven-flax.vercel.app/database.json',
+    : 'https://citiesnewapi.herokuapp.com',
 };
+
+
