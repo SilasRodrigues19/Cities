@@ -158,8 +158,10 @@ export const ListingPeople: React.FC = () => {
         toastOptions={{
           style: {
             width: smDown ? '70%' : '100%',
-            background: theme.palette.mode == 'light' ? '#1e1e1e' : '#cacaca',
-            color: theme.palette.mode == 'dark' ? '#1e1e1e' : '#fff',
+            background: 'transparent',
+            border: '1px solid',
+            borderColor: theme.palette.mode == 'light' ? 'rgba(1, 1, 1, .2)' : 'rgba(255, 255, 255, .2)',
+            color: theme.palette.mode == 'light' ? '#1e1e1e' : '#fff',
             padding: smDown ? '10px 20px' : '10px 50px',
             margin: smDown ? '0 auto' : '',
             userSelect: 'none',
