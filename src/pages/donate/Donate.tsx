@@ -14,12 +14,13 @@ import {
   useTheme,
   useMediaQuery,
   Link,
+  Collapse,
+  styled,
+  IconButton,
+  IconButtonProps,
 } from '@mui/material';
 
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import Collapse from '@mui/material/Collapse';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { FacebookShareButton } from 'react-share';

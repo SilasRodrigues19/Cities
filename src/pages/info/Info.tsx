@@ -13,10 +13,9 @@ import {
   Grid,
   Tab,
   Tabs,
-  Box
+  Box,
+  styled
 } from '@mui/material';
-
-import { styled } from '@mui/material/styles';
 
 import React from 'react';
 import Image from 'material-ui-image';

@@ -180,7 +180,7 @@ export const ListingPeople: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{borderBottom: 'none',}} width="8%">Action</TableCell>
+              <TableCell sx={{borderBottom: 'none',}} width="15%">Action</TableCell>
               <TableCell sx={{borderBottom: 'none',}}>Fullname</TableCell>
               <TableCell sx={{borderBottom: 'none',}} width="45%">Mail</TableCell>
             </TableRow>
@@ -195,16 +195,21 @@ export const ListingPeople: React.FC = () => {
                   }}
                 >
                   <IconButton
+                  sx={{
+                        '&:hover': {
+                          filter: 'brightness(.8)'
+                        }
+                      }}
                     size="small"
                     onClick={() => navigate(`/people/details/${id}`)}
                   >
                     <Tooltip title="Edit">
-                      <Icon>mode_edit_outlined</Icon>
+                      <Icon fontSize="small">mode_edit_outlined</Icon>
                     </Tooltip>
                   </IconButton>
                   <IconButton size="small" onClick={() => handleDelete(id)}>
                     <Tooltip title="Delete">
-                      <Icon>delete_icon</Icon>
+                      <Icon fontSize="small">delete_icon</Icon>
                     </Tooltip>
                   </IconButton>
                 </TableCell>

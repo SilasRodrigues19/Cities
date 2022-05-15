@@ -2,11 +2,7 @@ import { BaseLayoutOfPages } from '../../shared/layouts';
 import { DetailTools } from '../../shared/components';
 
 import { useTheme, Box, SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
-import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
-import Apartment from '@mui/icons-material/Apartment';
-import Info from '@mui/icons-material/Info';
-import Help from '@mui/icons-material/Help';
-import VolunteerActivism from '@mui/icons-material/VolunteerActivism';
+import { Info, Help, Apartment, SupervisorAccount, VolunteerActivism } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 
