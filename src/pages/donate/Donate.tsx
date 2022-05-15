@@ -100,7 +100,7 @@ export const Donate: React.FC = () => {
             <Button
               sx={{
                 minWidth: !mdDown ? '100px' : '',
-                width: lgUp ? '25rem' : '5rem',
+                width: lgUp ? '15rem' : '5rem',
                 padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
               }}
               color="primary"
@@ -131,7 +131,7 @@ export const Donate: React.FC = () => {
               <Button
                 sx={{
                   minWidth: !mdDown ? '100px' : '',
-                  width: lgUp ? '25rem' : '5rem',
+                  width: lgUp ? '15rem' : '5rem',
                   padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
                 }}
                 color="primary"
