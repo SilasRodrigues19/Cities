@@ -28,6 +28,7 @@ import {
   Theme
 } from '@mui/material';
 
+
 import toast, { Toaster } from 'react-hot-toast';
 
 import Swal from 'sweetalert2'
@@ -177,7 +178,9 @@ export const ListingPeople: React.FC = () => {
           width: 'auto',
         }}
       >
-        <Table>
+        <Table
+          sx={{borderBottom: '2px solid transparent'}}
+        >
           <TableHead>
             <TableRow>
               <TableCell sx={{borderBottom: 'none',}} width="15%">Action</TableCell>
