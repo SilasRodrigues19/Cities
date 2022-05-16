@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
 import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
+import { Form } from '@unform/web';
+import { FTextField } from '../../shared/forms';
 
 export const PeopleDetail: React.FC = () => {
   
@@ -116,6 +118,15 @@ export const PeopleDetail: React.FC = () => {
         />
       }
     >
+
+      <Form onSubmit={(dados) => console.log(dados)}>
+        <FTextField
+          name="Fullname"
+        />
+        <button type="submit">Submit</button>
+      </Form>
+
+
       {isLoading && (
         <CircularProgress variant="indeterminate" />
       )}
