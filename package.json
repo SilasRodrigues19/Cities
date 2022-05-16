@@ -8,6 +8,8 @@
         "@mui/icons-material": "^5.4.1",
         "@mui/material": "^5.4.2",
         "@types/react-router-dom": "^5.3.3",
+        "@unform/core": "^2.1.6",
+        "@unform/web": "^2.1.6",
         "animate.css": "^4.1.1",
         "axios": "^0.26.1",
         "material-ui-image": "^3.3.2",
