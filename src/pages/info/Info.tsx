@@ -254,6 +254,8 @@ export const Info: React.FC = () => {
               </Box>
               <Image
                 src={smileyImage}
+                alt="smiley image"
+                loading="lazy"
                 style={{
                   background: 'transparent',
                   width: 'auto',
