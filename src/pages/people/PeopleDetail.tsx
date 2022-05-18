@@ -1,5 +1,5 @@
 import { CircularProgress, TextField } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DetailTools } from '../../shared/components';
@@ -9,12 +9,21 @@ import { PeopleService } from '../../shared/services/api/people/PeopleService';
 import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 import { FTextField } from '../../shared/forms';
+
+
+interface IFormData {
+  email: string;
+  fullname: string;
+  cityId: string;
+}
 
 export const PeopleDetail: React.FC = () => {
   
   const { id = 'new' } = useParams<'id'>();
   const navigate = useNavigate();
+  const formRef = useRef<FormHandles>(null);
   const theme = useTheme();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,8 +52,8 @@ export const PeopleDetail: React.FC = () => {
     }
   }, [id])
 
-  const handleSave = () => {
-    console.log('Save');
+  const handleSave = (dados: IFormData) => {
+    console.log(dados);
   };
 
   const handleDelete = (id: number) => {
@@ -110,8 +119,8 @@ export const PeopleDetail: React.FC = () => {
           showSaveCloseButton
           showNewButton={id !== 'new'}
           showDeleteButton={id !== 'new'}
-          onClickSave={handleSave}
-          onClickSaveClose={handleSave}
+          onClickSave={() => formRef.current?.submitForm()}
+          onClickSaveClose={() => formRef.current?.submitForm()}
           onClickDelete={() => handleDelete(Number(id))}
           onClickNew={() => navigate('/people/details/new')}
           onClickBack={() => navigate('/people')}
@@ -119,11 +128,10 @@ export const PeopleDetail: React.FC = () => {
       }
     >
 
-      <Form onSubmit={(dados) => console.log(dados)}>
-        <FTextField
-          name="Fullname"
-        />
-        <button type="submit">Submit</button>
+      <Form ref={formRef} onSubmit={handleSave}>
+        <FTextField name="Fullname" />
+        <FTextField name="Email" />
+        <FTextField name="cityId" />
       </Form>
 
 
