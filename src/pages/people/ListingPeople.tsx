@@ -25,7 +25,8 @@ import {
   Tooltip,
   Stack,
   useMediaQuery,
-  Theme
+  Theme,
+  Link
 } from '@mui/material';
 
 
@@ -230,7 +231,8 @@ export const ListingPeople: React.FC = () => {
                     borderBottom: '1px solid rgba(80, 80, 80, .1)',
                   }}
                 >
-                  {email}
+                  
+                  <Link color="inherit" underline="hover" href="mailto:{email}">{email}</Link>
                 </TableCell>
               </TableRow>
             ))}
