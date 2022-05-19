@@ -1,6 +1,6 @@
-import { Box, Grid, LinearProgress, Paper, TextField, Typography } from '@mui/material';
+import { Box, Grid, LinearProgress, Paper, TextField, Theme, Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DetailTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
@@ -20,7 +20,9 @@ interface IFormData {
 }
 
 export const PeopleDetail: React.FC = () => {
-  
+
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+
   const { id = 'new' } = useParams<'id'>();
   const navigate = useNavigate();
   const formRef = useRef<FormHandles>(null);
@@ -30,26 +32,26 @@ export const PeopleDetail: React.FC = () => {
   const [name, setName] = useState('');
 
   useEffect(() => {
-    if(id !== 'new') {
-      
+    if (id !== 'new') {
+
       setIsLoading(true);
 
       PeopleService.getById(Number(id))
-      .then((result) => {
-        setIsLoading(false);
+        .then((result) => {
+          setIsLoading(false);
 
-        if(result instanceof Error) {
-          toast.remove();
-          toast.error(result.message, {
-            duration: 5000,
-            position: 'top-right',
-          });
-          navigate('/people');
-          return;
-        }
-        setName(result.fullName);
-        formRef.current?.setData(result);
-      })
+          if (result instanceof Error) {
+            toast.remove();
+            toast.error(result.message, {
+              duration: 5000,
+              position: 'top-right',
+            });
+            navigate('/people');
+            return;
+          }
+          setName(result.fullName);
+          formRef.current?.setData(result);
+        })
     }
   }, [id])
 
@@ -58,32 +60,37 @@ export const PeopleDetail: React.FC = () => {
 
     if (id === 'new') {
       PeopleService
-      .create(data)
-      .then((result) => {
-        setIsLoading(false);
-        if(result instanceof Error) {
-          toast.error(result.message, {
-            duration: 5000,
-            position: 'top-right',
-          });
-          return;
-        }
-        navigate(`/people/details/${result}`);
-      });
+        .create(data)
+        .then((result) => {
+          setIsLoading(false);
+          if (result instanceof Error) {
+            toast.error(result.message, {
+              duration: 5000,
+              position: 'top-right',
+            });
+            return;
+          }
+          navigate(`/people/details/${result}`);
+        });
       return;
     }
     PeopleService
-      .updateById(Number(id), { id: Number(id), ...data})
+      .updateById(Number(id), { id: Number(id), ...data })
       .then((result) => {
         setIsLoading(false);
-        
-        if(result instanceof Error) {
+
+        if (result instanceof Error) {
           toast.error(result.message, {
             duration: 5000,
             position: 'top-right',
           });
           return;
         }
+        toast.remove();
+        toast.success('Success', {
+          duration: 5000,
+          position: 'top-right',
+        });
       });
   };
 
@@ -109,33 +116,33 @@ export const PeopleDetail: React.FC = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         PeopleService.deleteById(id)
-      .then((result) => {
-        if (result instanceof Error) {
-          toast.error(result.message, {
-            duration: 5000,
-            position: 'top-right',
+          .then((result) => {
+            if (result instanceof Error) {
+              toast.error(result.message, {
+                duration: 5000,
+                position: 'top-right',
+              });
+              return;
+            }
+            Swal.fire({
+              title: 'Deleted!',
+              text: `${name} has been deleted.`,
+              icon: 'success',
+              background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+              iconColor: '#7b1fa2',
+              confirmButtonColor: '#7b1fa2',
+              showClass: {
+                popup: 'animate__animated animate__backInUp',
+                icon: 'animate__animated animate__rollIn animate__delay-1s'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__backOutUp'
+              }
+            })
           });
-          return;
-        }
-        Swal.fire({
-          title: 'Deleted!',
-          text: `${name} has been deleted.`,
-          icon: 'success',
-          background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
-          iconColor: '#7b1fa2',
-          confirmButtonColor: '#7b1fa2',
-          showClass: {
-            popup: 'animate__animated animate__backInUp',
-            icon: 'animate__animated animate__rollIn animate__delay-1s'
-          },
-          hideClass: {
-            popup: 'animate__animated animate__backOutUp'
-          }
-        })
-      });
-      setTimeout(() => {
-        navigate('/people');
-      }, 3000);
+        setTimeout(() => {
+          navigate('/people');
+        }, 3000);
       }
     })
   };
@@ -159,61 +166,76 @@ export const PeopleDetail: React.FC = () => {
       }
     >
 
+      <Toaster
+        toastOptions={{
+          style: {
+            width: smDown ? '70%' : '100%',
+            background: 'transparent',
+            border: '1px solid',
+            borderColor: theme.palette.mode == 'light' ? 'rgba(1, 1, 1, .2)' : 'rgba(255, 255, 255, .2)',
+            color: theme.palette.mode == 'light' ? '#1e1e1e' : '#fff',
+            padding: smDown ? '10px 20px' : '10px 50px',
+            margin: smDown ? '0 auto' : '',
+            userSelect: 'none',
+          },
+        }}
+      />
+
       <Form ref={formRef} onSubmit={handleSave}>
-      
+
         <Box margin={1} display="flex" flexDirection="column" component={Paper} variant="outlined">
-            <Grid container direction="column" padding={2} spacing={2}>
+          <Grid container direction="column" padding={2} spacing={2}>
 
             {isLoading && (
               <Grid item>
                 <LinearProgress variant='indeterminate' />
               </Grid>
             )}
-            
+
             <Grid item>
               <Typography variant="h6">
                 Form data
               </Typography>
             </Grid>
 
-              <Grid container item direction="row" spacing={3}>
-                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                  <FTextField
-                    fullWidth 
-                    label="Fullname"
-                    placeholder="Enter with your name"
-                    name="fullName"
-                    onChange={e => setName(e.target.value)}
-                    disabled={isLoading} 
-                  />
-                </Grid>
+            <Grid container item direction="row" spacing={3}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <FTextField
+                  fullWidth
+                  label="Fullname"
+                  placeholder="Enter with your name"
+                  name="fullName"
+                  onChange={e => setName(e.target.value)}
+                  disabled={isLoading}
+                />
               </Grid>
-
-              <Grid container item direction="row" spacing={3}>
-                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                  <FTextField
-                    fullWidth 
-                    label="Email"
-                    placeholder="Enter with your email"
-                    name="email"
-                    disabled={isLoading} 
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid container item direction="row" spacing={3}>
-                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                  <FTextField
-                    fullWidth 
-                    label="City" 
-                    name="cityId"
-                    placeholder="Enter city code"
-                    disabled={isLoading} 
-                  />
-                </Grid>
-              </Grid>
-
             </Grid>
+
+            <Grid container item direction="row" spacing={3}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <FTextField
+                  fullWidth
+                  label="Email"
+                  placeholder="Enter with your email"
+                  name="email"
+                  disabled={isLoading}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid container item direction="row" spacing={3}>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <FTextField
+                  fullWidth
+                  label="City"
+                  name="cityId"
+                  placeholder="Enter city code"
+                  disabled={isLoading}
+                />
+              </Grid>
+            </Grid>
+
+          </Grid>
         </Box>
       </Form>
     </BaseLayoutOfPages>
