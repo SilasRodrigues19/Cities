@@ -63,7 +63,7 @@ export const ListingTools: React.FC<IListingToolsProps> = ({
             disableElevation
             variant="contained"
             onClick={changeNewButton}
-            endIcon={<Icon>add</Icon>}
+            startIcon={<Icon>add</Icon>}
           >
             {newTextButton}
           </Button>
