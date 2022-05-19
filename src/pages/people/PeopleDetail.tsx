@@ -1,6 +1,6 @@
-import { CircularProgress, TextField } from '@mui/material';
+import { Box, Grid, LinearProgress, Paper, TextField, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DetailTools } from '../../shared/components';
 import { BaseLayoutOfPages } from '../../shared/layouts';
@@ -160,15 +160,62 @@ export const PeopleDetail: React.FC = () => {
     >
 
       <Form ref={formRef} onSubmit={handleSave}>
-        <FTextField placeholder="Fullname" name="fullName" />
-        <FTextField placeholder="Email" name="email" />
-        <FTextField placeholder="City ID" name="cityId" />
+      
+        <Box margin={1} display="flex" flexDirection="column" component={Paper} variant="outlined">
+            <Grid container direction="column" padding={2} spacing={2}>
+
+            {isLoading && (
+              <Grid item>
+                <LinearProgress variant='indeterminate' />
+              </Grid>
+            )}
+            
+            <Grid item>
+              <Typography variant="h6">
+                Form data
+              </Typography>
+            </Grid>
+
+              <Grid container item direction="row" spacing={3}>
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                  <FTextField
+                    fullWidth 
+                    label="Fullname"
+                    placeholder="Enter with your name"
+                    name="fullName"
+                    onChange={e => setName(e.target.value)}
+                    disabled={isLoading} 
+                  />
+                </Grid>
+              </Grid>
+
+              <Grid container item direction="row" spacing={3}>
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                  <FTextField
+                    fullWidth 
+                    label="Email"
+                    placeholder="Enter with your email"
+                    name="email"
+                    disabled={isLoading} 
+                  />
+                </Grid>
+              </Grid>
+
+              <Grid container item direction="row" spacing={3}>
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                  <FTextField
+                    fullWidth 
+                    label="City" 
+                    name="cityId"
+                    placeholder="Enter city code"
+                    disabled={isLoading} 
+                  />
+                </Grid>
+              </Grid>
+
+            </Grid>
+        </Box>
       </Form>
-
-
-      {isLoading && (
-        <CircularProgress variant="indeterminate" />
-      )}
       <p>Teste {id}</p>
     </BaseLayoutOfPages>
   );
