@@ -27,8 +27,8 @@ export const FTextField: React.FC<TFTextFieldProps> = ({ name, ...rest }) => {
       defaultValue={defaultValue}
 
       value={value}
-      onKeyDown={() => error ? clearError() : undefined}
-      onChange={e => setValue(e.target.value)}
+      onKeyDown={(e) => { error && clearError(); rest.onKeyDown?.(e) }}
+      onChange={e => { setValue(e.target.value); rest.onChange?.(e); }}
     />
   );
 }
