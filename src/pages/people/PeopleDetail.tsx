@@ -15,8 +15,8 @@ import { FTextField } from '../../shared/forms';
 
 interface IFormData {
   email: string;
-  fullname: string;
-  cityId: string;
+  cityId: number;
+  fullName: string;
 }
 
 export const PeopleDetail: React.FC = () => {
@@ -37,6 +37,7 @@ export const PeopleDetail: React.FC = () => {
       PeopleService.getById(Number(id))
       .then((result) => {
         setIsLoading(false);
+
         if(result instanceof Error) {
           toast.remove();
           toast.error(result.message, {
@@ -47,13 +48,43 @@ export const PeopleDetail: React.FC = () => {
           return;
         }
         setName(result.fullName);
-        console.log(result);
+        formRef.current?.setData(result);
       })
     }
   }, [id])
 
-  const handleSave = (dados: IFormData) => {
-    console.log(dados);
+  const handleSave = (data: IFormData) => {
+    setIsLoading(true);
+
+    if (id === 'new') {
+      PeopleService
+      .create(data)
+      .then((result) => {
+        setIsLoading(false);
+        if(result instanceof Error) {
+          toast.error(result.message, {
+            duration: 5000,
+            position: 'top-right',
+          });
+          return;
+        }
+        navigate(`/people/details/${result}`);
+      });
+      return;
+    }
+    PeopleService
+      .updateById(Number(id), { id: Number(id), ...data})
+      .then((result) => {
+        setIsLoading(false);
+        
+        if(result instanceof Error) {
+          toast.error(result.message, {
+            duration: 5000,
+            position: 'top-right',
+          });
+          return;
+        }
+      });
   };
 
   const handleDelete = (id: number) => {
@@ -129,9 +160,9 @@ export const PeopleDetail: React.FC = () => {
     >
 
       <Form ref={formRef} onSubmit={handleSave}>
-        <FTextField name="Fullname" />
-        <FTextField name="Email" />
-        <FTextField name="cityId" />
+        <FTextField placeholder="Fullname" name="fullName" />
+        <FTextField placeholder="Email" name="email" />
+        <FTextField placeholder="City ID" name="cityId" />
       </Form>
 
 
