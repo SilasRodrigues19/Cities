@@ -216,7 +216,6 @@ export const PeopleDetail: React.FC = () => {
             </Grid>
         </Box>
       </Form>
-      <p>Teste {id}</p>
     </BaseLayoutOfPages>
   );
 };
