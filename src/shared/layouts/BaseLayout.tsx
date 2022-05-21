@@ -11,12 +11,12 @@ import { Box } from '@mui/system';
 
 import { useDrawerContext } from '../contexts';
 
-interface IBaseLayoutOfPagesProps {
+interface IBaseLayoutProps {
   title: string;
   toolbar?: ReactNode;
 }
 
-export const BaseLayoutOfPages: React.FC<IBaseLayoutOfPagesProps> = ({
+export const BaseLayout: React.FC<IBaseLayoutProps> = ({
   children,
   title,
   toolbar,
