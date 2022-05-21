@@ -1,0 +1,1 @@
+export { Scope as FScope } from '@unform/core';

@@ -20,7 +20,7 @@ export const FTextField: React.FC<TFTextFieldProps> = ({ name, ...rest }) => {
   }, [registerField, fieldName, value])
 
   return (
-    <TextField 
+    <TextField
       {...rest}
       error={!!error}
       helperText={error}

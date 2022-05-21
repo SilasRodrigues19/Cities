@@ -1,5 +1,5 @@
-import { Box, Grid, LinearProgress, Paper, TextField, Theme, Typography, useMediaQuery } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { Box, Grid, LinearProgress, Paper, Theme, Typography, useMediaQuery } from '@mui/material';
+import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DetailTools } from '../../shared/components';
@@ -8,9 +8,7 @@ import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
 import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
-import { Form } from '@unform/web';
-import { FormHandles } from '@unform/core';
-import { FTextField } from '../../shared/forms';
+import { FTextField, useFForm, FForm } from '../../shared/forms';
 
 
 interface IFormData {
@@ -25,8 +23,9 @@ export const PeopleDetail: React.FC = () => {
 
   const { id = 'new' } = useParams<'id'>();
   const navigate = useNavigate();
-  const formRef = useRef<FormHandles>(null);
   const theme = useTheme();
+
+  const { formRef } = useFForm();
 
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState('');
@@ -52,7 +51,13 @@ export const PeopleDetail: React.FC = () => {
           setName(result.fullName);
           formRef.current?.setData(result);
         })
+      return;
     }
+    formRef.current?.setData({
+      fullName: '',
+      email: '',
+      cityId: '',
+    });
   }, [id])
 
   const handleSave = (data: IFormData) => {
@@ -181,7 +186,7 @@ export const PeopleDetail: React.FC = () => {
         }}
       />
 
-      <Form ref={formRef} onSubmit={handleSave}>
+      <FForm ref={formRef} onSubmit={handleSave}>
 
         <Box margin={1} display="flex" flexDirection="column" component={Paper} variant="outlined">
           <Grid container direction="column" padding={2} spacing={2}>
@@ -201,6 +206,7 @@ export const PeopleDetail: React.FC = () => {
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
+                  autoFocus={true}
                   fullWidth
                   label="Fullname"
                   placeholder="Enter with your name"
@@ -237,7 +243,7 @@ export const PeopleDetail: React.FC = () => {
 
           </Grid>
         </Box>
-      </Form>
+      </FForm>
     </BaseLayout>
   );
 };
