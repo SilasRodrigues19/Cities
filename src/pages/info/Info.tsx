@@ -68,6 +68,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
 export const Info: React.FC = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -79,6 +80,19 @@ export const Info: React.FC = () => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
+
+
+  const smMargin = smDown ? '2px 0' : '';
+  const mdBoxShadow = !smDown ? 'none' :
+    `2.8px 2.8px 2.2px rgba(0, 0, 0, .02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, .028),
+    12.5px 12.5px 10px rgba(0, 0, 0, .035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, .042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, .05),
+    100px 100px 80px rgba(0, 0, 0, .07)`;
+
+  const maxW100 = '100%';
+  const fw500 = 500;
 
   return (
     <BaseLayoutOfPages title="Information">
@@ -236,19 +250,19 @@ export const Info: React.FC = () => {
                   flexDirection={smDown ? 'column' : 'row'}
                   columnGap={smDown ? '2rem' : ''}
                 >
-                  <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>We produce outstanding outcomes</Item>
+                  <Grid item xs={1} sm={12} md={12} lg={8} sx={{ maxWidth: maxW100 }}>
+                    <Item sx={{ fontWeight: fw500, margin: smMargin, boxShadow: mdBoxShadow }}>We produce outstanding outcomes</Item>
                   </Grid>
-                  <Grid item xs={smDown ? 2 : 2} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>Transparency</Item>
+                  <Grid item xs={1} sm={8} md={12} lg={4} sx={{ maxWidth: maxW100 }}>
+                    <Item sx={{ fontWeight: fw500, margin: smMargin, boxShadow: mdBoxShadow }}>Transparency</Item>
                   </Grid>
-                  <Grid item xs={smDown ? 2 : 4} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>
+                  <Grid item xs={1} sm={12} md={12} lg={6} sx={{ maxWidth: maxW100 }}>
+                    <Item sx={{ fontWeight: fw500, margin: smMargin, boxShadow: mdBoxShadow }}>
                       It's only good for us if it's good for the customer
                     </Item>
                   </Grid>
-                  <Grid item xs={smDown ? 2 : 8} sx={{ maxWidth: '100%' }}>
-                    <Item sx={{fontWeight: 500, margin: smDown ? '2px 0' : '', boxShadow: !smDown ? 'none' : ''}}>Respectful and ethical behavior</Item>
+                  <Grid item xs={1} sm={8} md={12} lg={4} sx={{ maxWidth: maxW100 }}>
+                    <Item sx={{ fontWeight: fw500, margin: smMargin, boxShadow: mdBoxShadow }}>Respectful and ethical behavior</Item>
                   </Grid>
                 </Grid>
               </Box>
