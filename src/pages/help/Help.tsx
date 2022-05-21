@@ -1,4 +1,4 @@
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import {
   Divider,
   Card,
@@ -65,7 +65,7 @@ export const Help: React.FC = () => {
       setExpanded(newExpanded ? panel : false);
     };
   return (
-    <BaseLayoutOfPages title="Help">
+    <BaseLayout title="Help">
       <Divider variant="middle" sx={{ mx: 2 }} />
       <Card
         sx={{ width: '75%', margin: '30px auto' }}
@@ -161,6 +161,6 @@ export const Help: React.FC = () => {
           </AccordionDetails>
         </Accordion>
       </Card>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DetailTools } from '../../shared/components';
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
 import Swal from 'sweetalert2'
@@ -149,7 +149,7 @@ export const PeopleDetail: React.FC = () => {
 
 
   return (
-    <BaseLayoutOfPages
+    <BaseLayout
       title={id === 'new' ? 'New Person' : 'Editing ' + name}
       toolbar={
         <DetailTools
@@ -238,6 +238,6 @@ export const PeopleDetail: React.FC = () => {
           </Grid>
         </Box>
       </Form>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

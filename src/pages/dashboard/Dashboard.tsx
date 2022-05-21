@@ -1,4 +1,4 @@
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import { DetailTools } from '../../shared/components';
 
 import { useTheme, Box, SpeedDial, SpeedDialIcon, SpeedDialAction } from '@mui/material';
@@ -22,7 +22,7 @@ export const Dashboard = () => {
   const theme = useTheme();
 
   return (
-    <BaseLayoutOfPages
+    <BaseLayout
       title="Dashboard"
       toolbar={
         <DetailTools showNewButton showSaveCloseButton showBackButton={false} />
@@ -57,6 +57,6 @@ export const Dashboard = () => {
           ))}
         </SpeedDial>
       </Box>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

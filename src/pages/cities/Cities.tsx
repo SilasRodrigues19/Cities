@@ -1,4 +1,4 @@
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import {
   Divider,
   Card,
@@ -13,7 +13,7 @@ import cityImage from '../../images/city.svg';
 
 export const Cities: React.FC = () => {
   return (
-    <BaseLayoutOfPages title="Cities">
+    <BaseLayout title="Cities">
       <Divider variant="middle" sx={{ mx: 2 }} />
       <Card
         sx={{ width: '75%', margin: '30px auto' }}
@@ -41,6 +41,6 @@ export const Cities: React.FC = () => {
           </Typography>
         </CardContent>
       </Card>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

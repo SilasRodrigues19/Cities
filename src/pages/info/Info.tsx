@@ -1,4 +1,4 @@
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import {
   Divider,
   Card,
@@ -95,7 +95,7 @@ export const Info: React.FC = () => {
   const fw500 = 500;
 
   return (
-    <BaseLayoutOfPages title="Information">
+    <BaseLayout title="Information">
       <Divider variant="middle" sx={{ mx: 2 }} />
       <Card sx={{ width: '75%', margin: '30px auto' }} component={Paper}>
         <CardHeader title="About US" sx={{ textAlign: 'center' }}></CardHeader>
@@ -281,6 +281,6 @@ export const Info: React.FC = () => {
           </TabPanel>
         </Box>
       </Card>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

@@ -1,4 +1,4 @@
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import {
   Button,
   Divider,
@@ -54,7 +54,7 @@ export const Donate: React.FC = () => {
   }));
 
   return (
-    <BaseLayoutOfPages title="Contributions">
+    <BaseLayout title="Contributions">
       <Divider variant="middle" sx={{ mx: 2 }} />
       <Card
         sx={{ width: '75%', margin: '30px auto' }}
@@ -219,6 +219,6 @@ export const Donate: React.FC = () => {
           </CardContent>
         </Collapse>
       </Card>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };

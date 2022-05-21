@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ListingTools } from '../../shared/components';
-import { BaseLayoutOfPages } from '../../shared/layouts';
+import { BaseLayout } from '../../shared/layouts';
 import { Environment } from '../../shared/environment';
 import {
   PeopleService,
@@ -89,7 +89,7 @@ export const ListingPeople: React.FC = () => {
     });
   }, [search, page]);
 
-  
+
   const handleDelete = (id: number) => {
     Swal.fire({
       title: 'Are you sure you want to delete?',
@@ -112,37 +112,37 @@ export const ListingPeople: React.FC = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         PeopleService.deleteById(id)
-      .then((result) => {
-        if (result instanceof Error) {
-          toast.error(result.message, {
-            duration: 5000,
-            position: 'top-right',
+          .then((result) => {
+            if (result instanceof Error) {
+              toast.error(result.message, {
+                duration: 5000,
+                position: 'top-right',
+              });
+              return;
+            }
+            setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The user has been deleted.',
+              icon: 'success',
+              background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+              iconColor: '#7b1fa2',
+              confirmButtonColor: '#7b1fa2',
+              showClass: {
+                popup: 'animate__animated animate__backInUp',
+                icon: 'animate__animated animate__rollIn animate__delay-1s'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__backOutUp'
+              }
+            })
           });
-          return;
-        }
-        setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
-        Swal.fire({
-          title: 'Deleted!',
-          text: 'The user has been deleted.',
-          icon: 'success',
-          background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
-          iconColor: '#7b1fa2',
-          confirmButtonColor: '#7b1fa2',
-          showClass: {
-            popup: 'animate__animated animate__backInUp',
-            icon: 'animate__animated animate__rollIn animate__delay-1s'
-          },
-          hideClass: {
-            popup: 'animate__animated animate__backOutUp'
-          }
-        })
-      });
       }
     })
   };
 
   return (
-    <BaseLayoutOfPages
+    <BaseLayout
       title="List of people"
       toolbar={
         <ListingTools
@@ -180,13 +180,13 @@ export const ListingPeople: React.FC = () => {
         }}
       >
         <Table
-          sx={{borderBottom: '2px solid transparent'}}
+          sx={{ borderBottom: '2px solid transparent' }}
         >
           <TableHead>
             <TableRow>
-              <TableCell sx={{borderBottom: 'none',}} width="15%">Action</TableCell>
-              <TableCell sx={{borderBottom: 'none',}}>Fullname</TableCell>
-              <TableCell sx={{borderBottom: 'none',}} width="45%">Mail</TableCell>
+              <TableCell sx={{ borderBottom: 'none', }} width="15%">Action</TableCell>
+              <TableCell sx={{ borderBottom: 'none', }}>Fullname</TableCell>
+              <TableCell sx={{ borderBottom: 'none', }} width="45%">Mail</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -199,11 +199,11 @@ export const ListingPeople: React.FC = () => {
                   }}
                 >
                   <IconButton
-                  sx={{
-                        '&:hover': {
-                          filter: 'brightness(.8)'
-                        }
-                      }}
+                    sx={{
+                      '&:hover': {
+                        filter: 'brightness(.8)'
+                      }
+                    }}
                     size="small"
                     onClick={() => navigate(`/people/details/${id}`)}
                   >
@@ -231,7 +231,7 @@ export const ListingPeople: React.FC = () => {
                     borderBottom: '1px solid rgba(80, 80, 80, .1)',
                   }}
                 >
-                  
+
                   <Link color="inherit" underline="hover" href="mailto:{email}">{email}</Link>
                 </TableCell>
               </TableRow>
@@ -254,17 +254,17 @@ export const ListingPeople: React.FC = () => {
               <TableRow>
                 <TableCell colSpan={3}>
                   <Stack spacing={2}>
-                  <Pagination
-                    shape="rounded"
-                    page={page}
-                    count={Math.ceil(totalCount / Environment.ROWS_LIMIT)}
-                    onChange={(_, newPage) =>
-                      setSearchParams(
-                        { search, page: newPage.toString() },
-                        { replace: true }
-                      )
-                    }
-                  />
+                    <Pagination
+                      shape="rounded"
+                      page={page}
+                      count={Math.ceil(totalCount / Environment.ROWS_LIMIT)}
+                      onChange={(_, newPage) =>
+                        setSearchParams(
+                          { search, page: newPage.toString() },
+                          { replace: true }
+                        )
+                      }
+                    />
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -272,6 +272,6 @@ export const ListingPeople: React.FC = () => {
           </TableFooter>
         </Table>
       </TableContainer>
-    </BaseLayoutOfPages>
+    </BaseLayout>
   );
 };
