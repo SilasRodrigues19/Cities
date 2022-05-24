@@ -8,7 +8,8 @@ import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
 import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
-import { FTextField, useFForm, FForm } from '../../shared/forms';
+import { FTextField, useFForm, FForm, IFFormErrors } from '../../shared/forms';
+import * as val from 'yup';
 
 
 interface IFormData {
@@ -16,6 +17,12 @@ interface IFormData {
   cityId: number;
   fullName: string;
 }
+
+const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
+  cityId: val.number().required(),
+  email: val.string().required().email(),
+  fullName: val.string().required('Must be at least 3 characters').min(3),
+});
 
 export const PeopleDetail: React.FC = () => {
 
@@ -61,42 +68,60 @@ export const PeopleDetail: React.FC = () => {
   }, [id])
 
   const handleSave = (data: IFormData) => {
-    setIsLoading(true);
 
-    if (id === 'new') {
-      PeopleService
-        .create(data)
-        .then((result) => {
-          setIsLoading(false);
-          if (result instanceof Error) {
-            toast.error(result.message, {
+    formValidationSchema.
+      validate(data, { abortEarly: false })
+      .then((validateData) => {
+
+        setIsLoading(true);
+
+        if (id === 'new') {
+          PeopleService
+            .create(validateData)
+            .then((result) => {
+              setIsLoading(false);
+              if (result instanceof Error) {
+                toast.error(result.message, {
+                  duration: 5000,
+                  position: 'top-right',
+                });
+                return;
+              }
+              navigate(`/people/details/${result}`);
+            });
+          return;
+        }
+        PeopleService
+          .updateById(Number(id), { id: Number(id), ...validateData })
+          .then((result) => {
+            setIsLoading(false);
+
+            if (result instanceof Error) {
+              toast.error(result.message, {
+                duration: 5000,
+                position: 'top-right',
+              });
+              return;
+            }
+            toast.remove();
+            toast.success('Success', {
               duration: 5000,
               position: 'top-right',
             });
-            return;
-          }
-          navigate(`/people/details/${result}`);
-        });
-      return;
-    }
-    PeopleService
-      .updateById(Number(id), { id: Number(id), ...data })
-      .then((result) => {
-        setIsLoading(false);
-
-        if (result instanceof Error) {
-          toast.error(result.message, {
-            duration: 5000,
-            position: 'top-right',
           });
-          return;
-        }
-        toast.remove();
-        toast.success('Success', {
-          duration: 5000,
-          position: 'top-right',
+      })
+      .catch((errors: val.ValidationError) => {
+        const validationErrors: IFFormErrors = {};
+
+        errors.inner.forEach(error => {
+          if (!error.path) return;
+          validationErrors[error.path] = error.message;
         });
+
+        formRef.current?.setErrors(validationErrors);
+
       });
+
   };
 
   const handleDelete = (id: number) => {
@@ -155,9 +180,9 @@ export const PeopleDetail: React.FC = () => {
 
   return (
     <BaseLayout
-      title={id === 'new' ? 'New Person' : 'Editing ' + name}
+      title={id === 'new' ? 'New Person' : `Editing to ${name ? name : '...'}`}
       toolbar={
-        <DetailTools
+        < DetailTools
           newTextButton="New"
           showSaveCloseButton
           showNewButton={id !== 'new'}
@@ -244,6 +269,6 @@ export const PeopleDetail: React.FC = () => {
           </Grid>
         </Box>
       </FForm>
-    </BaseLayout>
+    </BaseLayout >
   );
 };
