@@ -21,7 +21,7 @@ interface IFormData {
 const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
   cityId: val.number().required(),
   email: val.string().required().email(),
-  fullName: val.string().required('Must be at least 3 characters').min(3),
+  fullName: val.string().required().min(3, 'Must be at least 3 characters'),
 });
 
 export const PeopleDetail: React.FC = () => {
