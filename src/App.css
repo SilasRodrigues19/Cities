@@ -51,3 +51,9 @@ a:active {
     background: rgba(1, 1, 1, .9);
     z-index: 1200;
 }
+
+.FTextFieldTruncated input {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
