@@ -4,15 +4,15 @@ const development: boolean = process.env.NODE_ENV !== 'production';
 
 export const Environment = {
   /**
-   * Define a quantidade de linhas a ser carregada por padrão nas listagens
+   * Default rows limit
    */
   ROWS_LIMIT: 5,
   /**
-   * Placeholder dos inputs.
+   * Inputs Placeholder .
    */
   SEARCH_INPUT: 'João...',
   /**
-   * Texto exibido caso não exista registros na listagem.
+   * Text displayed if there are no records in the listing.
    */
   EMPTY_LISTING: 'No data found.',
   /**
