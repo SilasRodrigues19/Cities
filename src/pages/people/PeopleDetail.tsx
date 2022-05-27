@@ -19,9 +19,9 @@ interface IFormData {
 }
 
 const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
-  cityId: val.number().required(),
-  email: val.string().required().email(),
-  fullName: val.string().required().min(3, 'Must be at least 3 characters'),
+  cityId: val.number().required().typeError('City can only contain numbers'),
+  email: val.string().required('The field is required').email('Email must be a valid email'),
+  fullName: val.string().required('Name is a required field').min(3, 'Name must be at least 3 characters').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
 });
 
 export const PeopleDetail: React.FC = () => {
@@ -180,7 +180,7 @@ export const PeopleDetail: React.FC = () => {
 
   return (
     <BaseLayout
-      title={id === 'new' ? 'New Person' : `Editing to ${name ? name : '...'}`}
+      title={id === 'new' ? 'New Person' : `Editing to ${isNaN(parseFloat(name)) ? name : '...'}`}
       toolbar={
         < DetailTools
           newTextButton="New"
@@ -231,6 +231,7 @@ export const PeopleDetail: React.FC = () => {
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
+                  className="FTextFieldTruncated"
                   autoFocus={true}
                   fullWidth
                   label="Fullname"
@@ -245,6 +246,7 @@ export const PeopleDetail: React.FC = () => {
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
+                  className="FTextFieldTruncated"
                   fullWidth
                   label="Email"
                   placeholder="Enter with your email"
