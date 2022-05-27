@@ -50,21 +50,33 @@
 
 [![Preview][product-screenshot2]](https://cities-two.vercel.app/people)
 
+### Editing People
+
+[![Preview][product-screenshot3]](https://cities-two.vercel.app/people/details/1)
+
+### People - Confirm Delete
+
+[![Preview][product-screenshot4]](https://cities-two.vercel.app/people/details/1)
+
+### People - Deleted
+
+[![Preview][product-screenshot5]](https://cities-two.vercel.app/people/details/1)
+
 ### Cities
 
-[![Preview][product-screenshot3]](https://cities-two.vercel.app/cities)
+[![Preview][product-screenshot6]](https://cities-two.vercel.app/cities)
 
 ### Help
 
-[![Preview][product-screenshot4]](https://cities-two.vercel.app/help)
+[![Preview][product-screenshot7]](https://cities-two.vercel.app/help)
 
 ### Info
 
-[![Preview][product-screenshot5]](https://cities-two.vercel.app/info)
+[![Preview][product-screenshot8]](https://cities-two.vercel.app/info)
 
 ### Donate
 
-[![Preview][product-screenshot6]](https://cities-two.vercel.app/donate)
+[![Preview][product-screenshot9]](https://cities-two.vercel.app/donate)
 
 This project was made and adapted during a React Tutorial by <a href="https://www.youtube.com/c/LucasSouzaDev">Lucas Souza Dev</a>
 
@@ -88,11 +100,18 @@ Technologies used in the project.
 ### External Services
 
 - [JSON Server](https://www.npmjs.com/package/json-server)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Unform](https://github.com/unform/unform)
+- [YUP](https://github.com/jquense/yup)
 
 ### Libraries
 
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Material UI](https://mui.com/pt/)
+- [Sweet Alert 2](https://sweetalert2.github.io/)
+- [Animate CSS](https://animate.style/)
+- [React Hot Toast](https://react-hot-toast.com/)
+
 
 ### Font Script
 
@@ -143,6 +162,9 @@ Project Link: [https://github.com/SilasRodrigues19/Cities](https://github.com/Si
 [product-screenshot4]: ./public/preview4.png
 [product-screenshot5]: ./public/preview5.png
 [product-screenshot6]: ./public/preview6.png
+[product-screenshot7]: ./public/preview7.png
+[product-screenshot8]: ./public/preview8.png
+[product-screenshot9]: ./public/preview9.png
 [license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 
 <br>
