@@ -35,7 +35,10 @@ export const PeopleDetail: React.FC = () => {
   const { formRef } = useFForm();
 
   const [isLoading, setIsLoading] = useState(false);
+
   const [name, setName] = useState('');
+
+  const defaultValue = '...';
 
   useEffect(() => {
     if (id !== 'new') {
@@ -177,10 +180,9 @@ export const PeopleDetail: React.FC = () => {
     })
   };
 
-
   return (
     <BaseLayout
-      title={id === 'new' ? 'New Person' : `Editing to ${isNaN(parseFloat(name)) ? name : '...'}`}
+      title={id === 'new' ? 'New Person' : `Editing to ${isNaN(parseFloat(name)) ? name : defaultValue}`}
       toolbar={
         < DetailTools
           newTextButton="New"
