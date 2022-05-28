@@ -233,11 +233,16 @@ export const PeopleDetail: React.FC = () => {
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
+                  sx={{
+                    '&:-webkit-autofill': {
+                      '-webkit-box-shadow': '0 0 0 100px #111827 inset',
+                    }
+                  }}
                   className="FTextFieldTruncated"
                   autoFocus={true}
                   fullWidth
                   label="Fullname"
-                  placeholder="Enter with your name"
+                  placeholder="Enter your name"
                   name="fullName"
                   onChange={e => setName(e.target.value)}
                   disabled={isLoading}
