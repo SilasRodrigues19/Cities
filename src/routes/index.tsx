@@ -5,6 +5,8 @@ import {
   Dashboard,
   ListingPeople,
   PeopleDetail,
+  ListingCities,
+  CitiesDetail,
   Cities,
   Help,
   Info,
@@ -54,6 +56,8 @@ export const AppRoutes = () => {
       <Route path="/home" element={<Dashboard />} />
       <Route path="/people" element={<ListingPeople />} />
       <Route path="/people/details/:id" element={<PeopleDetail />} />
+      <Route path="/cities" element={<ListingCities />} />
+      <Route path="/cities/details/:id" element={<CitiesDetail />} />
       <Route path="/cities" element={<Cities />} />
       <Route path="/help" element={<Help />} />
       <Route path="/info" element={<Info />} />
