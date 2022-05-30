@@ -184,7 +184,7 @@ export const PeopleDetail: React.FC = () => {
     <BaseLayout
       title={id === 'new' ? 'New Person' : `Editing to ${isNaN(parseFloat(name)) ? name : defaultValue}`}
       toolbar={
-        < DetailTools
+        <DetailTools
           newTextButton="New"
           showSaveCloseButton
           showNewButton={id !== 'new'}
