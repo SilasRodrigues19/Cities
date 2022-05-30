@@ -21,6 +21,20 @@
 
 ```
 
+#### Routes
+```
+/people
+/cities
+
+```
+
+[![Preview][mock-screenshot1]](https://citiesnewapi.herokuapp.com/)
+
 # Note
 
 ###### If you don't run this command, the people page will not work properly
+
+
+
+
+[mock-screenshot1]: ./preview.png
