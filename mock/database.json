@@ -4,6 +4,30 @@
     {
       "id": 1,
       "name": "Sumaré"
+    },
+    {
+      "name": "Campinas",
+      "id": 2
+    },
+    {
+      "name": "Sorocaba",
+      "id": 3
+    },
+    {
+      "name": "Limeira",
+      "id": 4
+    },
+    {
+      "name": "Americana",
+      "id": 5
+    },
+    {
+      "name": "Hortolândia",
+      "id": 6
+    },
+    {
+      "name": "Nova Odessa",
+      "id": 7
     }
   ]
 }
