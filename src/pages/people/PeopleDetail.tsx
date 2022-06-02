@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
 import { FTextField, useFForm, FForm, IFFormErrors } from '../../shared/forms';
 import * as val from 'yup';
+import { CityAutoComplete } from './components/CityAutoComplete';
 
 
 interface IFormData {
@@ -265,13 +266,7 @@ export const PeopleDetail: React.FC = () => {
 
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                <FTextField
-                  fullWidth
-                  label="City"
-                  name="cityId"
-                  placeholder="Enter city code"
-                  disabled={isLoading}
-                />
+                <CityAutoComplete />
               </Grid>
             </Grid>
 
