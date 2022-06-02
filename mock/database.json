@@ -1,5 +1,30 @@
 {
-  "people": [],
+  "people": [
+    {
+      "fullName": "João da Silva",
+      "email": "joao@mail.com",
+      "cityId": 1,
+      "id": 1
+    },
+    {
+      "fullName": "Carlos de Andrade",
+      "email": "carlos@mail.com",
+      "cityId": 3,
+      "id": 2
+    },
+    {
+      "fullName": "Amanda Diaas",
+      "email": "amanda@mail.com",
+      "cityId": 5,
+      "id": 3
+    },
+    {
+      "fullName": "Carla Santos",
+      "email": "carla@mail.com",
+      "cityId": 5,
+      "id": 4
+    }
+  ],
   "cities": [
     {
       "id": 1,
