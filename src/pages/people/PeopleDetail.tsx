@@ -20,8 +20,8 @@ interface IFormData {
 }
 
 const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
-  cityId: val.number().required().typeError('City can only contain numbers'),
-  email: val.string().required('The field is required').email('Email must be a valid email'),
+  cityId: val.number().required('City is a required field'),
+  email: val.string().required('Mail is a required field').email('Email must be a valid email'),
   fullName: val.string().required('Name is a required field').min(3, 'Name must be at least 3 characters').matches(/^[a-z\u00C0-\u00FF-\~`´^']+/i, "Only alphabets are allowed for this field "),
 });
 
@@ -67,7 +67,7 @@ export const PeopleDetail: React.FC = () => {
     formRef.current?.setData({
       fullName: '',
       email: '',
-      cityId: '',
+      cityId: undefined,
     });
   }, [id])
 
