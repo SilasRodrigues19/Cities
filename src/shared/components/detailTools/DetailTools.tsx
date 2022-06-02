@@ -99,7 +99,7 @@ export const DetailTools: React.FC<IDetailToolsProps> = ({
             color="primary"
             disableElevation
             variant="outlined"
-            onClick={onClickSaveClose}
+            onClick={() => { }}
             startIcon={<Icon>fact_check</Icon>}
           >
             <Typography
