@@ -180,7 +180,7 @@ export const CitiesDetail: React.FC = () => {
       toolbar={
         <DetailTools
           newTextButton="New"
-          showSaveCloseButton
+          showSaveCloseButton={false}
           showNewButton={id !== 'new'}
           showDeleteButton={id !== 'new'}
           onClickSave={() => formRef.current?.submitForm()}

@@ -187,7 +187,7 @@ export const PeopleDetail: React.FC = () => {
       toolbar={
         <DetailTools
           newTextButton="New"
-          showSaveCloseButton
+          showSaveCloseButton={false}
           showNewButton={id !== 'new'}
           showDeleteButton={id !== 'new'}
           onClickSave={() => formRef.current?.submitForm()}
@@ -266,7 +266,7 @@ export const PeopleDetail: React.FC = () => {
 
             <Grid container item direction="row" spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                <CityAutoComplete />
+                <CityAutoComplete isExternalLoading={isLoading} />
               </Grid>
             </Grid>
 
