@@ -123,7 +123,7 @@ export const ListingCities: React.FC = () => {
             setRows((oldRows) => [...oldRows.filter((oldRow) => oldRow.id !== id)]);
             Swal.fire({
               title: 'Deleted!',
-              text: 'The user has been deleted.',
+              text: 'The city has been deleted.',
               icon: 'success',
               background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
               iconColor: '#7b1fa2',
