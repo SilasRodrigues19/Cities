@@ -1,58 +1,56 @@
 {
-  "people": [
-    {
-      "fullName": "João da Silva",
-      "email": "joao@mail.com",
-      "cityId": 1,
-      "id": 1
-    },
-    {
-      "fullName": "Carlos de Andrade",
-      "email": "carlos@mail.com",
-      "cityId": 3,
-      "id": 2
-    },
-    {
-      "fullName": "Amanda Diaas",
-      "email": "amanda@mail.com",
-      "cityId": 5,
-      "id": 3
-    },
-    {
-      "fullName": "Carla Santos",
-      "email": "carla@mail.com",
-      "cityId": 5,
-      "id": 4
-    }
-  ],
-  "cities": [
-    {
-      "id": 1,
-      "name": "Sumaré"
-    },
-    {
-      "name": "Campinas",
-      "id": 2
-    },
-    {
-      "name": "Sorocaba",
-      "id": 3
-    },
-    {
-      "name": "Limeira",
-      "id": 4
-    },
-    {
-      "name": "Americana",
-      "id": 5
-    },
-    {
-      "name": "Hortolândia",
-      "id": 6
-    },
-    {
-      "name": "Nova Odessa",
-      "id": 7
-    }
-  ]
+    "people": [{
+            "fullName": "João da Silva",
+            "email": "joao@mail.com",
+            "cityId": 1,
+            "id": 1
+        },
+        {
+            "fullName": "Carlos de Andrade",
+            "email": "carlos@mail.com",
+            "cityId": 3,
+            "id": 2
+        },
+        {
+            "fullName": "Amanda Diaas",
+            "email": "amanda@mail.com",
+            "cityId": 5,
+            "id": 3
+        },
+        {
+            "fullName": "Carla Santos",
+            "email": "carla@mail.com",
+            "cityId": 2,
+            "id": 4
+        }
+    ],
+    "cities": [{
+            "id": 1,
+            "name": "Sumaré"
+        },
+        {
+            "name": "Campinas",
+            "id": 2
+        },
+        {
+            "name": "Sorocaba",
+            "id": 3
+        },
+        {
+            "name": "Limeira",
+            "id": 4
+        },
+        {
+            "name": "Americana",
+            "id": 5
+        },
+        {
+            "name": "Hortolândia",
+            "id": 6
+        },
+        {
+            "name": "Nova Odessa",
+            "id": 7
+        }
+    ]
 }
