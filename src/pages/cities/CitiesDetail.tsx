@@ -17,7 +17,7 @@ interface IFormData {
 }
 
 const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
-  name: val.string().required('Name is a required field').min(3, 'Name must be at least 3 characters').matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+  name: val.string().required('Name is a required field').min(3, 'Name must be at least 3 characters').matches(/^[a-z\u00C0-\u00FF-\~`´^']+/i, "Only alphabets are allowed for this field "),
 });
 
 export const CitiesDetail: React.FC = () => {
