@@ -232,7 +232,7 @@ export const ListingPeople: React.FC = () => {
                   }}
                 >
 
-                  <Link color="inherit" underline="hover" href="mailto:{email}">{email}</Link>
+                  <Link color="inherit" underline="hover" href={`mailto:${email}`}>{email}</Link>
                 </TableCell>
               </TableRow>
             ))}
