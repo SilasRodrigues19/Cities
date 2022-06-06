@@ -8,6 +8,10 @@ import { useEffect, useState } from 'react';
 import { CitiesService } from '../../shared/services/api/cities/CitiesService';
 import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
+
 const navigateTo: any = (to: string, children: string) => (
   <Link to={to}>{children}</Link>
 );
@@ -20,14 +24,38 @@ const actions = [
   { icon: navigateTo('/people', <SupervisorAccount />), name: 'People' },
 ];
 
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 export const Dashboard = () => {
   const theme = useTheme();
+
+
+
 
   const [isCitiesloading, setCitiesIsLoading] = useState(true);
   const [isPeopleloading, setPeopleIsLoading] = useState(true);
 
   const [totalCitiesCount, setTotalCitiesCount] = useState(0);
   const [totalPeopleCount, setTotalPeopleCount] = useState(0);
+
+  const data = {
+    labels: ['Total People', 'Total Cities'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [totalPeopleCount, totalCitiesCount],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+        ],
+        borderWidth: 3,
+      },
+    ],
+  };
 
   useEffect(() => {
     setCitiesIsLoading(true)
@@ -62,6 +90,7 @@ export const Dashboard = () => {
         <DetailTools showNewButton={false} showDeleteButton={false} showSaveButton={false} showSaveCloseButton={false} showBackButton={false} />
       }
     >
+      <Doughnut data={data} />
       <Box width='100%' display='flex'>
         <Grid container margin={2}>
           <Grid item container spacing={2}>
