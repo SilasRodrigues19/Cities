@@ -1,7 +1,7 @@
 import { BaseLayout } from '../../shared/layouts';
 import { DetailTools } from '../../shared/components';
 
-import { useTheme, Box, SpeedDial, SpeedDialIcon, SpeedDialAction, Grid, Card, CardContent, Typography } from '@mui/material';
+import { useTheme, Paper, Box, SpeedDial, SpeedDialIcon, SpeedDialAction, Grid, Card, CardContent, Typography } from '@mui/material';
 import { Info, Help, Apartment, SupervisorAccount, VolunteerActivism, StrikethroughSTwoTone } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -90,7 +90,7 @@ export const Dashboard = () => {
         <DetailTools showNewButton={false} showDeleteButton={false} showSaveButton={false} showSaveCloseButton={false} showBackButton={false} />
       }
     >
-      <Doughnut data={data} />
+
       <Box width='100%' display='flex'>
         <Grid container margin={2}>
           <Grid item container spacing={2}>
@@ -138,6 +138,26 @@ export const Dashboard = () => {
                         Carregando...
                       </Typography>
                     )}
+                  </Box>
+                </CardContent>
+              </Card>
+
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={3}>
+
+              <Card>
+                <CardContent>
+
+
+                  <Box padding={5.5} display='flex' justifyContent='center' alignItems='center'>
+
+                    <Doughnut
+                      data={data}
+
+                      options={{ maintainAspectRatio: false }}
+                    />
+
                   </Box>
                 </CardContent>
               </Card>
