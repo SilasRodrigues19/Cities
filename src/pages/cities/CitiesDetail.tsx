@@ -43,6 +43,12 @@ export const CitiesDetail: React.FC = () => {
 
       CitiesService.getById(Number(id))
         .then((result) => {
+          toast.remove();
+          toast.success('Success', {
+            duration: 5000,
+            position: 'top-right',
+          });
+
           setIsLoading(false);
 
           if (result instanceof Error) {
