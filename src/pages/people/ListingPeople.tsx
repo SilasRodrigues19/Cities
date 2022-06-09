@@ -72,17 +72,6 @@ export const ListingPeople: React.FC = () => {
           });
           return;
         }
-        /*
-        Success Message during debounce
-        if(result.totalCount > 1) {
-          toast.remove();
-          toast.success('Successfully loaded', {
-            duration: 5000,
-            position: 'top-right',
-          });
-        }
-        if(result.totalCount === 0) toast.remove();
-        */
         setTotalCount(result.totalCount);
         setRows(result.data);
       });
