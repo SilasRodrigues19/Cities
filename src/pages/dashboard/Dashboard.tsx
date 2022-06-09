@@ -11,6 +11,8 @@ import { PeopleService } from '../../shared/services/api/people/PeopleService';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
+import { Icon as Loading } from '@iconify/react';
+
 
 const navigateTo: any = (to: string, children: string) => (
   <Link to={to}>{children}</Link>
@@ -45,14 +47,14 @@ export const Dashboard = () => {
         label: '# of Votes',
         data: [totalPeopleCount, totalCitiesCount],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
+          '#71c4b6',
+          '#4d0b64',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
+          '#468379',
+          '#340345',
         ],
-        borderWidth: 3,
+        borderWidth: 1,
       },
     ],
   };
@@ -111,7 +113,7 @@ export const Dashboard = () => {
                     )}
                     {isPeopleloading && (
                       <Typography variant='h6'>
-                        Carregando...
+                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
                       </Typography>
                     )}
                   </Box>
@@ -135,7 +137,7 @@ export const Dashboard = () => {
                     )}
                     {isCitiesloading && (
                       <Typography variant='h6'>
-                        Carregando...
+                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
                       </Typography>
                     )}
                   </Box>
@@ -148,16 +150,22 @@ export const Dashboard = () => {
 
               <Card>
                 <CardContent>
+                  <Typography variant='h5' align='center'>
+                    Chart
+                  </Typography>
 
-
-                  <Box padding={5.5} display='flex' justifyContent='center' alignItems='center'>
-
-                    <Doughnut
-                      data={data}
-
-                      options={{ maintainAspectRatio: false }}
-                    />
-
+                  <Box padding={3.6} display='flex' justifyContent='center' alignItems='center'>
+                    {!isCitiesloading && !isPeopleloading && (
+                      <Doughnut
+                        data={data}
+                        options={{ maintainAspectRatio: false }}
+                      />
+                    )}
+                    {isCitiesloading && isPeopleloading && (
+                      <Typography variant='h6'>
+                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
+                      </Typography>
+                    )}
                   </Box>
                 </CardContent>
               </Card>
