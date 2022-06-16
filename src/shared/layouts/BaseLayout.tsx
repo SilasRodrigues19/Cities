@@ -10,6 +10,8 @@ import {
 import { Box } from '@mui/system';
 
 import { useDrawerContext } from '../contexts';
+import Background from '../../images/build_background.avif';
+
 
 interface IBaseLayoutProps {
   title: string;
@@ -27,6 +29,8 @@ export const BaseLayout: React.FC<IBaseLayoutProps> = ({
 
   const { toggleDrawerOpen } = useDrawerContext();
 
+ 
+
   return (
     <Box height="100%" display="flex" flexDirection="column" gap={1}
       sx={{
@@ -37,7 +41,7 @@ export const BaseLayout: React.FC<IBaseLayoutProps> = ({
           top: 0,
           width: '100%',
           height: '100%',
-          background: 'url(https://cdn.pixabay.com/photo/2017/07/14/09/39/city-2503261_1280.jpg) no-repeat center / cover',
+          background: `url(${Background}) no-repeat center / cover`,
           opacity: theme.palette.mode === 'light' ? '.1' : '.02',
           pointerEvents: 'none',
         }
