@@ -20,6 +20,7 @@ import MuiAccordionSummary, {
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
 import faqImage from '../../images/faq.svg';
+import { useTitle } from '../../shared/hooks';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -58,6 +59,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export const Help: React.FC = () => {
+
+  useTitle('Help');
+
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
 
   const handleChange =

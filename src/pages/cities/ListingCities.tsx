@@ -7,7 +7,7 @@ import {
   CitiesService,
   IListingCities,
 } from '../../shared/services/api/cities/CitiesService';
-import { useDebounce } from '../../shared/hooks';
+import { useDebounce, useTitle } from '../../shared/hooks';
 import {
   Table,
   TableContainer,
@@ -36,6 +36,9 @@ import Swal from 'sweetalert2'
 import 'animate.css';
 
 export const ListingCities: React.FC = () => {
+
+  useTitle('List of Cities');
+
   const [searchParams, setSearchParams] = useSearchParams();
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
@@ -72,17 +75,6 @@ export const ListingCities: React.FC = () => {
           });
           return;
         }
-        /*
-        Success Message during debounce
-        if(result.totalCount > 1) {
-          toast.remove();
-          toast.success('Successfully loaded', {
-            duration: 5000,
-            position: 'top-right',
-          });
-        }
-        if(result.totalCount === 0) toast.remove();
-        */
         setTotalCount(result.totalCount);
         setRows(result.data);
       });

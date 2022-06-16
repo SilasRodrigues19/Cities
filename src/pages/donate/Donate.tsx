@@ -26,8 +26,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FacebookShareButton } from 'react-share';
 
 import donateImage from '../../images/donate.svg';
+import { useTitle } from '../../shared/hooks';
 
 export const Donate: React.FC = () => {
+
+  useTitle('Donate');
+
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));

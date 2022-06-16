@@ -13,6 +13,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 import { Icon as Loading } from '@iconify/react';
 
+import { useTitle } from '../../shared/hooks';
 
 const navigateTo: any = (to: string, children: string) => (
   <Link to={to}>{children}</Link>
@@ -31,8 +32,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export const Dashboard = () => {
   const theme = useTheme();
 
-
-
+  useTitle('Dashboard');
 
   const [isCitiesloading, setCitiesIsLoading] = useState(true);
   const [isPeopleloading, setPeopleIsLoading] = useState(true);

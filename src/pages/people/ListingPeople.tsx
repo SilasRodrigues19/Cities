@@ -7,7 +7,7 @@ import {
   PeopleService,
   IListingPeople,
 } from '../../shared/services/api/people/PeopleService';
-import { useDebounce } from '../../shared/hooks';
+import { useDebounce, useTitle } from '../../shared/hooks';
 import {
   Table,
   TableContainer,
@@ -36,6 +36,9 @@ import Swal from 'sweetalert2'
 import 'animate.css';
 
 export const ListingPeople: React.FC = () => {
+
+  useTitle('List of People');
+
   const [searchParams, setSearchParams] = useSearchParams();
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 

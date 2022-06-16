@@ -10,7 +10,7 @@ import Swal from 'sweetalert2'
 import { useTheme } from '@mui/material';
 import { FTextField, useFForm, FForm, IFFormErrors } from '../../shared/forms';
 import * as val from 'yup';
-
+import { useTitle } from '../../shared/hooks';
 
 interface IFormData {
   name: string;
@@ -25,6 +25,9 @@ export const CitiesDetail: React.FC = () => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   const { id = 'new' } = useParams<'id'>();
+
+  id === 'new' ? useTitle('List of Cities - Adding') : useTitle('List of Cities - Editing');
+
   const navigate = useNavigate();
   const theme = useTheme();
 

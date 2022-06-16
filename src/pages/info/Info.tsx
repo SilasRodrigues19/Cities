@@ -26,6 +26,7 @@ import thoughtsImage from '../../images/thoughts.svg';
 import smileyImage from '../../images/smiley.svg';
 
 import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
+import { useTitle } from '../../shared/hooks';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -70,6 +71,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 export const Info: React.FC = () => {
+
+  useTitle('Information');
+
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
