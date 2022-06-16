@@ -25,8 +25,10 @@ import rocketImage from '../../images/rocket.svg';
 import thoughtsImage from '../../images/thoughts.svg';
 import smileyImage from '../../images/smiley.svg';
 
+import { motion } from 'framer-motion'
 import { TipsAndUpdates, AutoGraph, RocketLaunch } from '@mui/icons-material';
 import { useTitle } from '../../shared/hooks';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -38,6 +40,7 @@ function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
+    
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -101,6 +104,7 @@ export const Info: React.FC = () => {
   return (
     <BaseLayout title="Information">
       <Divider variant="middle" sx={{ mx: 2 }} />
+      
       <Card sx={{ width: '75%', margin: '30px auto' }} component={Paper}>
         <CardHeader title="About US" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
@@ -178,15 +182,23 @@ export const Info: React.FC = () => {
                 region of São Paulo.
               </Typography>
               <Divider variant="middle" sx={{ mx: 2 }} />
-              <Image
-                src={rocketImage}
-                style={{
-                  background: 'transparent',
-                  width: 'auto',
-                  margin: '0 auto',
-                  paddingTop: 'calc(35%)',
-                }}
-              />
+              <motion.div
+                animate={{
+                scale: [.7, .4, .4, .7, .7],
+                translateY: [-200, 70, 20],
+              }}
+                transition={{ duration: 2.5 }}
+              >
+                <Image
+                  src={rocketImage}
+                  style={{
+                    background: 'transparent',
+                    width: 'auto',
+                    margin: '0 auto',
+                    paddingTop: 'calc(35%)',
+                  }}
+                />
+              </motion.div>
             </Paper>
           </TabPanel>
           <TabPanel value={value} index={1}>
@@ -213,15 +225,20 @@ export const Info: React.FC = () => {
                 negotiation for the acquisition of a property.
               </Typography>
               <Divider variant="middle" sx={{ mx: 2 }} />
-              <Image
-                src={thoughtsImage}
-                style={{
-                  background: 'transparent',
-                  width: 'auto',
-                  margin: '0 auto',
-                  paddingTop: 'calc(35%)',
-                }}
-              />
+              <motion.div
+                animate={{ scale: .8, translateY: -10 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Image
+                  src={thoughtsImage}
+                  style={{
+                    background: 'transparent',
+                    width: 'auto',
+                    margin: '0 auto',
+                    paddingTop: 'calc(35%)',
+                  }}
+                />
+              </motion.div>
             </Paper>
           </TabPanel>
           <TabPanel value={value} index={2}>
@@ -270,17 +287,22 @@ export const Info: React.FC = () => {
                   </Grid>
                 </Grid>
               </Box>
-              <Image
-                src={smileyImage}
-                alt="smiley image"
-                loading="lazy"
-                style={{
-                  background: 'transparent',
-                  width: 'auto',
-                  margin: smDown ? '10px 0' : '0 auto',
-                  paddingTop: 'calc(35%)',
-                }}
-              />
+               <motion.div
+                animate={{ scale: .8, translateY: -10 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Image
+                  src={smileyImage}
+                  alt="smiley image"
+                  loading="lazy"
+                  style={{
+                    background: 'transparent',
+                    width: 'auto',
+                    margin: smDown ? '10px 0' : '0 auto',
+                    paddingTop: 'calc(35%)',
+                  }}
+                />
+              </motion.div>
             </Paper>
           </TabPanel>
         </Box>
