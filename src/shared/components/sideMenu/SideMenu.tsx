@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate, useResolvedPath, useMatch } from 'react-router-dom';
-import { useAppThemeContext, useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useAuthContext, useDrawerContext } from '../../contexts';
 
 import Image from '../../../images/logo2.png';
 
@@ -54,6 +54,7 @@ export const SideMenu: React.FC = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useAppThemeContext();
+  const { logout } = useAuthContext();
 
   return (
     <>
@@ -114,6 +115,14 @@ export const SideMenu: React.FC = ({ children }) => {
                 </ListItemIcon>
                 <ListItemText
                   primary={theme.palette.mode == 'dark' ? 'Light' : 'Dark'}
+                />
+              </ListItemButton>
+              <ListItemButton onClick={logout}>
+                <ListItemIcon>
+                  <Icon>logout</Icon>
+                </ListItemIcon>
+                <ListItemText
+                  primary="Sign out"
                 />
               </ListItemButton>
             </List>
