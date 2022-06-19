@@ -49,7 +49,8 @@ a:active {
 .swal2-container.swal2-center.swal2-backdrop-show {
     overflow-y: auto;
     background: rgba(1, 1, 1, .9);
-    z-index: 1200;
+    z-index: 2000;
+    /* z-index from sidemenu + 1 */
 }
 
 .FTextFieldTruncated input {
