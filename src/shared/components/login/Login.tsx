@@ -36,6 +36,7 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
       login(validateData.email, validateData.password)
       .then(() => {
         setIsLoading(false);
+        setPassword('');
       })
     })
     .catch((errors: val.ValidationError) => {
@@ -85,6 +86,7 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
                 helperText={emailError}
                 onKeyDown={()  => setEmailError('')}
                 onChange={e => setEmail(e.target.value)}
+                autoComplete="off"
               />
               <TextField
                 fullWidth
