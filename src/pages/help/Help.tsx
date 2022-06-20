@@ -21,6 +21,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
 import faqImage from '../../images/faq.svg';
 import { useTitle } from '../../shared/hooks';
+import { motion } from 'framer-motion'
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -78,16 +79,21 @@ export const Help: React.FC = () => {
       >
         <CardHeader title="FAQ" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
-        <CardMedia
-          sx={{
-            objectFit: 'contain',
-            filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
-          }}
-          component="img"
-          height="194"
-          image={faqImage}
-          alt="FAQ Image"
-        />
+        <motion.div
+                animate={{ scale: .9, translateY: -10 }}
+                transition={{ duration: 0.5 }}
+              >
+          <CardMedia
+            sx={{
+              objectFit: 'contain',
+              filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
+            }}
+            component="img"
+            height="194"
+            image={faqImage}
+            alt="FAQ Image"
+          />
+        </motion.div>
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             Frequently Asked Questions.

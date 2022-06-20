@@ -108,16 +108,21 @@ export const Info: React.FC = () => {
       <Card sx={{ width: '75%', margin: '30px auto' }} component={Paper}>
         <CardHeader title="About US" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
-        <CardMedia
-          sx={{
-            objectFit: 'contain',
-            filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
-          }}
-          component="img"
-          height="194"
-          image={aboutImage}
-          alt="About Image"
-        />
+        <motion.div
+                animate={{ scale: .9, translateY: -10 }}
+                transition={{ duration: 0.5 }}
+              >
+          <CardMedia
+            sx={{
+              objectFit: 'contain',
+              filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
+            }}
+            component="img"
+            height="194"
+            image={aboutImage}
+            alt="About Image"
+          />
+        </motion.div>
         <CardContent>
           <Typography variant="body2" color="text.secondary"></Typography>
         </CardContent>
@@ -184,8 +189,8 @@ export const Info: React.FC = () => {
               <Divider variant="middle" sx={{ mx: 2 }} />
               <motion.div
                 animate={{
-                scale: [.7, .4, .4, .7, .7],
-                translateY: [-200, 70, 20],
+                scale: [.3, .3, .3, .3, .7, .7],
+                translateY: [0, 90, 20],
               }}
                 transition={{ duration: 2.5 }}
               >

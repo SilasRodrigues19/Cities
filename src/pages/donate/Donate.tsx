@@ -27,6 +27,7 @@ import { FacebookShareButton } from 'react-share';
 
 import donateImage from '../../images/donate.svg';
 import { useTitle } from '../../shared/hooks';
+import { motion } from 'framer-motion'
 
 export const Donate: React.FC = () => {
 
@@ -70,16 +71,21 @@ export const Donate: React.FC = () => {
           sx={{ textAlign: 'center' }}
         ></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
-        <CardMedia
-          sx={{
-            objectFit: 'contain',
-            filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
-          }}
-          component="img"
-          height="194"
-          image={donateImage}
-          alt="Donate background"
-        />
+        <motion.div
+                animate={{ scale: .9, translateY: -10 }}
+                transition={{ duration: 0.5 }}
+              >
+          <CardMedia
+            sx={{
+              objectFit: 'contain',
+              filter: 'drop-shadow(5px 3px 4px #7b1fa2)',
+            }}
+            component="img"
+            height="194"
+            image={donateImage}
+            alt="Donate background"
+          />
+        </motion.div>
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             Contributions are what make the open source community such an
@@ -102,28 +108,36 @@ export const Donate: React.FC = () => {
             rel="noreferrer"
             sx={{ display: 'inline-block' }}
           >
-            <Button
-              sx={{
-                minWidth: !mdDown ? '100px' : '',
-                width: lgUp ? '15rem' : '5rem',
-                padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
+            <motion.div
+              whileHover={{
+                translateY: -5,
+                transition: { duration: .3 },
               }}
-              color="primary"
-              disableElevation
-              variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
-              startIcon={<Icon sx={{ ml: 1 }}>monetization_on_icon</Icon>}
-            >
-              {!smDown && (
-                <Typography
-                  variant="button"
-                  whiteSpace="nowrap"
-                  textOverflow="ellipsis"
-                  overflow="hidden"
-                >
-                  Donate
-                </Typography>
-              )}
-            </Button>
+              whileTap={{ translateY: 0 }}
+            > 
+              <Button
+                sx={{
+                  minWidth: !mdDown ? '100px' : '',
+                  width: lgUp ? '15rem' : '5rem',
+                  padding: smDown ? '5px 20px' : lgUp ? '5px 55px' : '',
+                }}
+                color="primary"
+                disableElevation
+                variant={theme.palette.mode == 'light' ? 'outlined' : 'contained'}
+                startIcon={<Icon sx={{ ml: 1 }}>monetization_on_icon</Icon>}
+              >
+                {!smDown && (
+                  <Typography
+                    variant="button"
+                    whiteSpace="nowrap"
+                    textOverflow="ellipsis"
+                    overflow="hidden"
+                  >
+                    Donate
+                  </Typography>
+                )}
+              </Button>
+            </motion.div>
           </Link>
           <Link href="#" underline="none" sx={{ display: 'inline-block' }}>
             <FacebookShareButton
@@ -133,6 +147,13 @@ export const Donate: React.FC = () => {
               }
               hashtag={'#cities'}
             >
+              <motion.div
+              whileHover={{
+                translateY: -5,
+                transition: { duration: .3 },
+              }}
+              whileTap={{ translateY: 0 }}
+            > 
               <Button
                 sx={{
                   minWidth: !mdDown ? '100px' : '',
@@ -157,6 +178,7 @@ export const Donate: React.FC = () => {
                   </Typography>
                 )}
               </Button>
+            </motion.div>
             </FacebookShareButton>
           </Link>
           <ExpandMore

@@ -4,6 +4,8 @@ import { useAuthContext } from "../../contexts";
 import Background from '../../../images/build_background.avif';
 import * as val from 'yup'
 import { useTitle } from "../../hooks";
+import { motion } from 'framer-motion';
+
 
 const loginSchema = val.object().shape({
   email: val.string().email().required(),
@@ -57,6 +59,7 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
   )
 
   return (
+    
     <Box width="100vw" height="100vh" display="flex" alignItems="center" justifyContent="center"
     sx={{
         "&::before": {
@@ -72,6 +75,10 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
         }
       }}
     >
+      <motion.div
+                animate={{ scale: 1.1, translateY: -5 }}
+                transition={{ duration: .5 }}
+              >
         <Card>
           <CardContent>
             <Box display="flex" flexDirection="column" gap={2} width={250}>
@@ -114,6 +121,7 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
             </Box>
           </CardActions>
         </Card>
+        </motion.div>
     </Box>
   );
 }
