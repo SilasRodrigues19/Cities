@@ -42,29 +42,35 @@
 
 ## About The Project
 
-### Home
+### Login
 
-[![Preview][product-screenshot]](https://cities-two.vercel.app/home)
+[![Preview][product-screenshot]](https://cities-two.vercel.app)
 
-### People
+### Dashboard
 
-[![Preview][product-screenshot2]](https://cities-two.vercel.app/people)
+[![Preview][product-screenshot2]](https://cities-two.vercel.app)
+
+### Listing People
+
+[![Preview][product-screenshot3]](https://cities-two.vercel.app/people)
+
+### Adding People
+
+[![Preview][product-screenshot4]](https://cities-two.vercel.app/people/details/new)
 
 ### Editing People
 
-[![Preview][product-screenshot3]](https://cities-two.vercel.app/people/details/1)
-
-### People - Confirm Delete
-
-[![Preview][product-screenshot4]](https://cities-two.vercel.app/people/details/1)
-
-### People - Deleted
-
 [![Preview][product-screenshot5]](https://cities-two.vercel.app/people/details/1)
 
-### Cities
+### Deleting People
 
-[![Preview][product-screenshot6]](https://cities-two.vercel.app/cities)
+[![Preview][product-screenshot6]](https://cities-two.vercel.app/people)
+
+<hr>
+
+#### \* The cities page is very similar to the people page, that's why there are no screenshots
+
+<hr>
 
 ### Help
 
@@ -77,6 +83,18 @@
 ### Donate
 
 [![Preview][product-screenshot9]](https://cities-two.vercel.app/donate)
+
+### Example Light Mode
+
+[![Preview][product-screenshot10]](https://cities-two.vercel.app/)
+
+### Example Mobile
+
+[![Preview][product-screenshot11]](https://cities-two.vercel.app/)
+
+### Mobile Menu
+
+[![Preview][product-screenshot12]](https://cities-two.vercel.app/)
 
 This project was made and adapted during a React Tutorial by <a href="https://www.youtube.com/c/LucasSouzaDev">Lucas Souza Dev</a>
 
@@ -111,7 +129,6 @@ Technologies used in the project.
 - [Sweet Alert 2](https://sweetalert2.github.io/)
 - [Animate CSS](https://animate.style/)
 - [React Hot Toast](https://react-hot-toast.com/)
-
 
 ### Font Script
 
@@ -156,15 +173,18 @@ Project Link: [https://github.com/SilasRodrigues19/Cities](https://github.com/Si
 [issues-url]: https://github.com/SilasRodrigues19/Cities/issues
 [license-shield]: https://img.shields.io/github/license/SilasRodrigues19/Cities.svg?style=for-the-badge
 [license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
-[product-screenshot]: ./public/preview.png
-[product-screenshot2]: ./public/preview2.png
-[product-screenshot3]: ./public/preview3.png
-[product-screenshot4]: ./public/preview4.png
-[product-screenshot5]: ./public/preview5.png
-[product-screenshot6]: ./public/preview6.png
-[product-screenshot7]: ./public/preview7.png
-[product-screenshot8]: ./public/preview8.png
-[product-screenshot9]: ./public/preview9.png
+[product-screenshot]: ./public/screenshot_login.png
+[product-screenshot2]: ./public/screenshot_dashboard.png
+[product-screenshot3]: ./public/screenshot_listing_people.png
+[product-screenshot4]: ./public/screenshot_adding_people.png
+[product-screenshot5]: ./public/screenshot_editing_people.png
+[product-screenshot6]: ./public/screenshot_deleting_people.png
+[product-screenshot7]: ./public/screenshot_help.png
+[product-screenshot8]: ./public/screenshot_info.png
+[product-screenshot9]: ./public/screenshot_donate.png
+[product-screenshot10]: ./public/screenshot_example_light.png
+[product-screenshot11]: ./public/screenshot_example_mobile.png
+[product-screenshot12]: ./public/screenshot_example_mobile_menu.png
 [license-url]: https://github.com/SilasRodrigues19/Cities/blob/master/LICENSE
 
 <br>
