@@ -42,6 +42,19 @@
 
 ## About The Project
 
+<hr>
+
+#### \* App auth is mocked with a fake token, use any valid email and at least 5 characters for password for example:
+
+<br>
+
+```
+mail@domain.com
+12345
+```
+
+<hr>
+
 ### Login
 
 [![Preview][product-screenshot]](https://cities-two.vercel.app)
