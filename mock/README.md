@@ -22,9 +22,11 @@
 ```
 
 #### Routes
+
 ```
 /people
 /cities
+/auth
 
 ```
 
@@ -33,8 +35,5 @@
 # Note
 
 ###### If you don't run this command, the people page will not work properly
-
-
-
 
 [mock-screenshot1]: ./preview.png
