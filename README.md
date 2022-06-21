@@ -44,7 +44,7 @@
 
 <hr>
 
-#### \* App auth is mocked with a fake token, use any valid email and at least 5 characters for password for example:
+#### \* App auth is mocked with a fake token, use any valid email and at least 5 characters for password, for example:
 
 <br>
 
