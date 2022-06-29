@@ -8,8 +8,8 @@ import { motion } from 'framer-motion';
 
 
 const loginSchema = val.object().shape({
-  email: val.string().email().required(),
-  password: val.string().required().min(5),
+  email: val.string().email('Email must be a valid email').required('Email is a required field'),
+  password: val.string().min(5).required('Enter your password'),
 })
 
 interface ILoginProps {
