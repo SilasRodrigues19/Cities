@@ -111,14 +111,16 @@ mail@domain.com
 
 This project was made and adapted during a React Tutorial by <a href="https://www.youtube.com/c/LucasSouzaDev">Lucas Souza Dev</a>
 
-The website is one page only:
+The pages of this project are described below:
 
-- **Home**: home page, which will display the main content of the application.
-- **People**: all registered people will be displayed, it is possible to filter people.
-- **Cities**: all registered cities will be displayed <strong>(Not yet implemented)</strong>.
-- **Help**: a help list will be displayed for a good use of the application <strong>(Not yet implemented)</strong>.
-- **Info**: application information <strong>(Not yet implemented)</strong>.
-- **Donate**: page to collaborate with the project <strong>(Not yet implemented)</strong>.
+- **Login**: login page with a token to simulate securing private routes.
+- **Home**: home page with speed dial to other pages and information displayed in graphic format.
+- **People**: all registered people will be displayed, it is possible to filter, add, edit and delete people, it's possible to link a person to a city.
+- **Cities**: all registered cities will be displayed it is possible to filter, add, edit and delete cities.
+- **Help**: a help list with simulated FAQ's.
+- **Info**: mission, vision and values ​​of the fictitious company.
+- **Donate**: page to donate to the project or share on Facebook to promote.
+- **Light / Dark**: toggle between dark and light mode.
 
 ### Built With
 
