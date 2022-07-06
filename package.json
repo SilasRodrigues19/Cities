@@ -21,7 +21,7 @@
         "react-router-dom": "6",
         "react-scripts": "5.0.0",
         "react-share": "^4.4.0",
-        "sweetalert2": "^11.4.19",
+        "sweetalert2": "^11.4.20",
         "yup": "^0.32.11"
     },
     "devDependencies": {
