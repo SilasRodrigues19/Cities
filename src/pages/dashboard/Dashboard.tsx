@@ -113,7 +113,7 @@ export const Dashboard = () => {
                     )}
                     {isPeopleloading && (
                       <Typography variant='h6'>
-                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
+                        <Loading style={{ fontSize: '5rem' }} icon="eos-icons:bubble-loading" />
                       </Typography>
                     )}
                   </Box>
@@ -137,7 +137,7 @@ export const Dashboard = () => {
                     )}
                     {isCitiesloading && (
                       <Typography variant='h6'>
-                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
+                        <Loading style={{ fontSize: '5rem' }} icon="eos-icons:bubble-loading" />
                       </Typography>
                     )}
                   </Box>
@@ -163,7 +163,7 @@ export const Dashboard = () => {
                     )}
                     {isCitiesloading && isPeopleloading && (
                       <Typography variant='h6'>
-                        <Loading style={{fontSize: '5rem'}} icon="eos-icons:bubble-loading" />
+                        <Loading style={{ fontSize: '5rem' }} icon="eos-icons:bubble-loading" />
                       </Typography>
                     )}
                   </Box>

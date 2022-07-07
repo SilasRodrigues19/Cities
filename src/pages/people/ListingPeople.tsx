@@ -32,6 +32,7 @@ import {
 
 import toast, { Toaster } from 'react-hot-toast';
 
+import { Icon as Loader } from '@iconify/react';
 import Swal from 'sweetalert2'
 import 'animate.css';
 
@@ -180,6 +181,13 @@ export const ListingPeople: React.FC = () => {
               <TableCell sx={{ borderBottom: 'none', }}>Fullname</TableCell>
               <TableCell sx={{ borderBottom: 'none', }} width="45%">Mail</TableCell>
             </TableRow>
+            {isLoading && (
+              <TableRow>
+                <TableCell sx={{ borderBottom: 'none', }} colSpan={3} align="center">
+                  <Loader icon="eos-icons:three-dots-loading" style={{ color: "#7b1fa2", fontSize: '14rem' }} />
+                </TableCell>
+              </TableRow>
+            )}
           </TableHead>
           <TableBody>
             {rows.map(({ id, fullName, email }) => (
@@ -235,13 +243,6 @@ export const ListingPeople: React.FC = () => {
           )}
 
           <TableFooter>
-            {isLoading && (
-              <TableRow>
-                <TableCell colSpan={3}>
-                  <LinearProgress variant="indeterminate" />
-                </TableCell>
-              </TableRow>
-            )}
             {totalCount > 0 && totalCount > Environment.ROWS_LIMIT && (
               <TableRow>
                 <TableCell colSpan={3}>
