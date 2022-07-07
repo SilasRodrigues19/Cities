@@ -1,8 +1,8 @@
 import { BaseLayout } from '../../shared/layouts';
 import { DetailTools } from '../../shared/components';
 
-import { useTheme, Paper, Box, SpeedDial, SpeedDialIcon, SpeedDialAction, Grid, Card, CardContent, Typography } from '@mui/material';
-import { Info, Help, Apartment, SupervisorAccount, VolunteerActivism, StrikethroughSTwoTone } from '@mui/icons-material';
+import { useTheme, Box, SpeedDial, SpeedDialIcon, SpeedDialAction, Grid, Card, CardContent, Typography } from '@mui/material';
+import { Info, Help, Apartment, SupervisorAccount, VolunteerActivism } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { CitiesService } from '../../shared/services/api/cities/CitiesService';
