@@ -40,7 +40,7 @@ function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
-    
+
     <div
       role="tabpanel"
       hidden={value !== index}
@@ -104,14 +104,14 @@ export const Info: React.FC = () => {
   return (
     <BaseLayout title="Information">
       <Divider variant="middle" sx={{ mx: 2 }} />
-      
+
       <Card sx={{ width: '75%', margin: '30px auto' }} component={Paper}>
         <CardHeader title="About US" sx={{ textAlign: 'center' }}></CardHeader>
         <Divider variant="middle" sx={{ margin: '10px 0' }} />
         <motion.div
-                animate={{ scale: .9, translateY: -10 }}
-                transition={{ duration: 0.5 }}
-              >
+          animate={{ scale: .9, translateY: -10 }}
+          transition={{ duration: 0.5 }}
+        >
           <CardMedia
             sx={{
               objectFit: 'contain',
@@ -188,11 +188,8 @@ export const Info: React.FC = () => {
               </Typography>
               <Divider variant="middle" sx={{ mx: 2 }} />
               <motion.div
-                animate={{
-                scale: [.3, .3, .3, .3, .7, .7],
-                translateY: [0, 90, 20],
-              }}
-                transition={{ duration: 2.5 }}
+                animate={{ scale: .8, translateY: -10 }}
+                transition={{ duration: 0.5 }}
               >
                 <Image
                   src={rocketImage}
@@ -292,7 +289,7 @@ export const Info: React.FC = () => {
                   </Grid>
                 </Grid>
               </Box>
-               <motion.div
+              <motion.div
                 animate={{ scale: .8, translateY: -10 }}
                 transition={{ duration: 0.5 }}
               >
