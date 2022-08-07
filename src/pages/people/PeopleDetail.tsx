@@ -1,4 +1,12 @@
-import { Box, Grid, LinearProgress, Paper, Theme, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Grid,
+  LinearProgress,
+  Paper,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -6,12 +14,11 @@ import { DetailTools } from '../../shared/components';
 import { BaseLayout } from '../../shared/layouts';
 import { PeopleService } from '../../shared/services/api/people/PeopleService';
 
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { useTheme } from '@mui/material';
 import { FTextField, useFForm, FForm, IFFormErrors } from '../../shared/forms';
 import * as val from 'yup';
 import { CityAutoComplete } from './components/CityAutoComplete';
-
 
 interface IFormData {
   email: string;
@@ -21,12 +28,21 @@ interface IFormData {
 
 const formValidationSchema: val.SchemaOf<IFormData> = val.object().shape({
   cityId: val.number().required('City is a required field'),
-  email: val.string().required('Mail is a required field').email('Email must be a valid email'),
-  fullName: val.string().required('Name is a required field').min(3, 'Name must be at least 3 characters').matches(/^[a-z\u00C0-\u00FF-\~`´^']+/i, "Only alphabets are allowed for this field "),
+  email: val
+    .string()
+    .required('Mail is a required field')
+    .email('Email must be a valid email'),
+  fullName: val
+    .string()
+    .required('Name is a required field')
+    .min(3, 'Name must be at least 3 characters')
+    .matches(
+      /^[a-z\u00C0-\u00FF-\~`´^']+/i,
+      'Only alphabets are allowed for this field '
+    ),
 });
 
 export const PeopleDetail: React.FC = () => {
-
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   const { id = 'new' } = useParams<'id'>();
@@ -43,31 +59,23 @@ export const PeopleDetail: React.FC = () => {
 
   useEffect(() => {
     if (id !== 'new') {
-
       setIsLoading(true);
 
-      PeopleService.getById(Number(id))
-        .then((result) => {
-          toast.remove();
-            toast.success('Success', {
-              duration: 5000,
-              position: 'top-right',
-            });
-            
-          setIsLoading(false);
+      PeopleService.getById(Number(id)).then((result) => {
+        setIsLoading(false);
 
-          if (result instanceof Error) {
-            toast.remove();
-            toast.error(result.message, {
-              duration: 5000,
-              position: 'top-right',
-            });
-            navigate('/people');
-            return;
-          }
-          setName(result.fullName);
-          formRef.current?.setData(result);
-        })
+        if (result instanceof Error) {
+          toast.remove();
+          toast.error(result.message, {
+            duration: 5000,
+            position: 'top-right',
+          });
+          navigate('/people');
+          return;
+        }
+        setName(result.fullName);
+        formRef.current?.setData(result);
+      });
       return;
     }
     formRef.current?.setData({
@@ -75,37 +83,17 @@ export const PeopleDetail: React.FC = () => {
       email: '',
       cityId: undefined,
     });
-  }, [id])
+  }, [id]);
 
   const handleSave = (data: IFormData) => {
-
-    formValidationSchema.
-      validate(data, { abortEarly: false })
+    formValidationSchema
+      .validate(data, { abortEarly: false })
       .then((validateData) => {
-
         setIsLoading(true);
 
         if (id === 'new') {
-          PeopleService
-            .create(validateData)
-            .then((result) => {
-              setIsLoading(false);
-              if (result instanceof Error) {
-                toast.error(result.message, {
-                  duration: 5000,
-                  position: 'top-right',
-                });
-                return;
-              }
-              navigate(`/people/details/${result}`);
-            });
-          return;
-        }
-        PeopleService
-          .updateById(Number(id), { id: Number(id), ...validateData })
-          .then((result) => {
+          PeopleService.create(validateData).then((result) => {
             setIsLoading(false);
-
             if (result instanceof Error) {
               toast.error(result.message, {
                 duration: 5000,
@@ -113,25 +101,40 @@ export const PeopleDetail: React.FC = () => {
               });
               return;
             }
-            toast.remove();
-            toast.success('Success', {
+            navigate(`/people/details/${result}`);
+          });
+          return;
+        }
+        PeopleService.updateById(Number(id), {
+          id: Number(id),
+          ...validateData,
+        }).then((result) => {
+          setIsLoading(false);
+
+          if (result instanceof Error) {
+            toast.error(result.message, {
               duration: 5000,
               position: 'top-right',
             });
+            return;
+          }
+          toast.remove();
+          toast.success('Success', {
+            duration: 5000,
+            position: 'top-right',
           });
+        });
       })
       .catch((errors: val.ValidationError) => {
         const validationErrors: IFFormErrors = {};
 
-        errors.inner.forEach(error => {
+        errors.inner.forEach((error) => {
           if (!error.path) return;
           validationErrors[error.path] = error.message;
         });
 
         formRef.current?.setErrors(validationErrors);
-
       });
-
   };
 
   const handleDelete = (id: number) => {
@@ -148,51 +151,54 @@ export const PeopleDetail: React.FC = () => {
       background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
       showClass: {
         popup: 'animate__animated animate__fadeInDown',
-        icon: 'animate__animated animate__swing animate__delay-1s'
+        icon: 'animate__animated animate__swing animate__delay-1s',
       },
       hideClass: {
-        popup: 'animate__animated animate__fadeOutDown'
-      }
+        popup: 'animate__animated animate__fadeOutDown',
+      },
     }).then((result) => {
       if (result.isConfirmed) {
-        PeopleService.deleteById(id)
-          .then((result) => {
-            if (result instanceof Error) {
-              toast.error(result.message, {
-                duration: 5000,
-                position: 'top-right',
-              });
-              return;
-            }
-            Swal.fire({
-              title: 'Deleted!',
-              text: `${name} has been deleted.`,
-              icon: 'success',
-              background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
-              iconColor: '#7b1fa2',
-              confirmButtonColor: '#7b1fa2',
-              showClass: {
-                popup: 'animate__animated animate__backInUp',
-                icon: 'animate__animated animate__rollIn animate__delay-1s'
-              },
-              hideClass: {
-                popup: 'animate__animated animate__backOutUp'
-              }
-            })
+        PeopleService.deleteById(id).then((result) => {
+          if (result instanceof Error) {
+            toast.error(result.message, {
+              duration: 5000,
+              position: 'top-right',
+            });
+            return;
+          }
+          Swal.fire({
+            title: 'Deleted!',
+            text: `${name} has been deleted.`,
+            icon: 'success',
+            background: theme.palette.mode == 'dark' ? '#cacaca' : '#1e1e1e',
+            iconColor: '#7b1fa2',
+            confirmButtonColor: '#7b1fa2',
+            showClass: {
+              popup: 'animate__animated animate__backInUp',
+              icon: 'animate__animated animate__rollIn animate__delay-1s',
+            },
+            hideClass: {
+              popup: 'animate__animated animate__backOutUp',
+            },
           });
+        });
         setTimeout(() => {
           navigate('/people');
         }, 3000);
       }
-    })
+    });
   };
 
   return (
     <BaseLayout
-      title={id === 'new' ? 'New Person' : `Editing to ${isNaN(parseFloat(name)) ? name : defaultValue}`}
+      title={
+        id === 'new'
+          ? 'New Person'
+          : `Editing to ${isNaN(parseFloat(name)) ? name : defaultValue}`
+      }
       toolbar={
         <DetailTools
-          newTextButton="New"
+          newTextButton='New'
           showSaveCloseButton={false}
           showNewButton={id !== 'new'}
           showDeleteButton={id !== 'new'}
@@ -204,14 +210,16 @@ export const PeopleDetail: React.FC = () => {
         />
       }
     >
-
       <Toaster
         toastOptions={{
           style: {
             width: smDown ? '70%' : '100%',
             background: 'transparent',
             border: '1px solid',
-            borderColor: theme.palette.mode == 'light' ? 'rgba(1, 1, 1, .2)' : 'rgba(255, 255, 255, .2)',
+            borderColor:
+              theme.palette.mode == 'light'
+                ? 'rgba(1, 1, 1, .2)'
+                : 'rgba(255, 255, 255, .2)',
             color: theme.palette.mode == 'light' ? '#1e1e1e' : '#fff',
             padding: smDown ? '10px 20px' : '10px 50px',
             margin: smDown ? '0 auto' : '',
@@ -221,10 +229,14 @@ export const PeopleDetail: React.FC = () => {
       />
 
       <FForm ref={formRef} onSubmit={handleSave}>
-
-        <Box margin={1} display="flex" flexDirection="column" component={Paper} variant="outlined">
-          <Grid container direction="column" padding={2} spacing={2}>
-
+        <Box
+          margin={1}
+          display='flex'
+          flexDirection='column'
+          component={Paper}
+          variant='outlined'
+        >
+          <Grid container direction='column' padding={2} spacing={2}>
             {isLoading && (
               <Grid item>
                 <LinearProgress variant='indeterminate' />
@@ -232,53 +244,50 @@ export const PeopleDetail: React.FC = () => {
             )}
 
             <Grid item>
-              <Typography variant="h6">
-                Form data
-              </Typography>
+              <Typography variant='h6'>Form data</Typography>
             </Grid>
 
-            <Grid container item direction="row" spacing={3}>
+            <Grid container item direction='row' spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
                   sx={{
                     '&:-webkit-autofill': {
                       '-webkit-box-shadow': '0 0 0 100px #111827 inset',
-                    }
+                    },
                   }}
-                  className="FTextFieldTruncated"
+                  className='FTextFieldTruncated'
                   autoFocus={true}
                   fullWidth
-                  label="Fullname"
-                  placeholder="Enter your name"
-                  name="fullName"
-                  onChange={e => setName(e.target.value)}
+                  label='Fullname'
+                  placeholder='Enter your name'
+                  name='fullName'
+                  onChange={(e) => setName(e.target.value)}
                   disabled={isLoading}
                 />
               </Grid>
             </Grid>
 
-            <Grid container item direction="row" spacing={3}>
+            <Grid container item direction='row' spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <FTextField
-                  className="FTextFieldTruncated"
+                  className='FTextFieldTruncated'
                   fullWidth
-                  label="Email"
-                  placeholder="Enter with your email"
-                  name="email"
+                  label='Email'
+                  placeholder='Enter with your email'
+                  name='email'
                   disabled={isLoading}
                 />
               </Grid>
             </Grid>
 
-            <Grid container item direction="row" spacing={3}>
+            <Grid container item direction='row' spacing={3}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
                 <CityAutoComplete isExternalLoading={isLoading} />
               </Grid>
             </Grid>
-
           </Grid>
         </Box>
       </FForm>
-    </BaseLayout >
+    </BaseLayout>
   );
 };
