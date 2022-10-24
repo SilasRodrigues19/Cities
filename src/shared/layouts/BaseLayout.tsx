@@ -42,7 +42,7 @@ export const BaseLayout: React.FC<IBaseLayoutProps> = ({
           width: '100%',
           height: '100%',
           background: `url(${Background}) no-repeat center / cover`,
-          opacity: theme.palette.mode === 'light' ? '.1' : '.02',
+          opacity: theme.palette.mode === 'light' ? '.06' : '.02',
           pointerEvents: 'none',
         }
       }}
