@@ -22,7 +22,7 @@
         "react-scripts": "5.0.0",
         "react-share": "^4.4.1",
         "sweetalert2": "^11.7.1",
-        "yup": "^0.32.11"
+        "yup": "^1.0.0"
     },
     "devDependencies": {
         "@iconify/react": "^4.1.0",
